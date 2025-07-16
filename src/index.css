@@ -1,1 +1,79 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg: hsl(var(--background));
+  --color-text: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+}
+
+@layer base {
+  :root {
+    --background: 201 40% 98%;
+    --foreground: 222 47% 11%;
+    --primary: 174 59% 41%;
+    --secondary: 45 100% 51%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+    --primary: 174 59% 61%;
+    --secondary: 45 100% 70%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 80rem;
+}
+
+@utility nav-container {
+  @apply flex justify-between items-center py-4;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@utility nav-menu {
+  @apply hidden md:flex gap-4;
+}
+
+@utility mobile-menu {
+  @apply flex flex-col md:hidden bg-white dark:bg-zinc-900 px-4 py-2 gap-2;
+}
+
+@utility nav-link {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+@utility btn-primary {
+  @apply px-6 py-2 rounded-full font-medium;
+  background-color: var(--color-primary);
+  color: hsl(210 40% 98%);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: hsl(var(--primary) / 0.8);
+  transform: scale(1.05);
+}

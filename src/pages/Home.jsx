@@ -1,45 +1,69 @@
+import { Github, Linkedin, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import NavLink from "../components/NavLink";
 
 function Home() {
+	const [menuOpen, setMenuOpen] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(false);
+
+	useEffect(() => {
+		const storedTheme = localStorage.getItem("theme");
+		if (storedTheme) {
+			setIsDarkMode(storedTheme === "dark");
+			document.documentElement.classList.toggle("dark", storedTheme === "dark");
+		} else {
+			const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+			setIsDarkMode(systemPrefersDark);
+			document.documentElement.classList.toggle("dark", systemPrefersDark);
+		}
+	}, []);
+
+	const toggleDarkMode = () => {
+		const newTheme = !isDarkMode ? "dark" : "light";
+		document.documentElement.classList.toggle("dark", newTheme === "dark");
+		localStorage.setItem("theme", newTheme);
+		setIsDarkMode(!isDarkMode);
+	};
+
 	return (
 		<>
 			{/* Navigation */}
-			<nav>
-				<ul>
-					<li>
-						<a href="#about">About</a>
-					</li>
-					<li>
-						<a href="#skills">Skills</a>
-					</li>
-					<li>
-						<a href="#projects">Projects</a>
-					</li>
-					<li>
-						<a href="#resume">Resume</a>
-					</li>
-				</ul>
+			<nav className="nav-container container">
+				<div className="text-xl font-bold">AK.</div>
+
+				<div className="flex items-center gap-4">
+					{/* Dark Mode Toggle */}
+					<button onClick={toggleDarkMode} aria-label="Toggle dark mode">
+						{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+					</button>
+
+					{/* Desktop Menu */}
+					<ul className="nav-menu">
+						<NavLink link="about" label="About" />
+						<NavLink link="skills" label="Skills" />
+						<NavLink link="projects" label="Projects" />
+						<NavLink link="resume" label="Resume" />
+					</ul>
+
+					{/* Mobile Toggle Button */}
+					<button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+						{menuOpen ? <X size={24} /> : <Menu size={24} />}
+					</button>
+				</div>
 			</nav>
 
 			{/* Mobile Menu */}
-			{
-				<ul>
-					<li>
-						<a href="#about">About</a>
-					</li>
-					<li>
-						<a href="#skills">Skills</a>
-					</li>
-					<li>
-						<a href="#projects">Projects</a>
-					</li>
-					<li>
-						<a href="#resume">Resume</a>
-					</li>
+			{menuOpen && (
+				<ul className="mobile-menu">
+					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
+					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
+					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
+					<NavLink link="resume" label="Resume" onClick={() => setMenuOpen(false)} />
 				</ul>
-			}
+			)}
 
-			<main>
+			<main className="container">
 				<section>
 					{/* Hero */}
 					<div>
