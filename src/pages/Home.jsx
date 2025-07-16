@@ -1,5 +1,6 @@
-import { Github, Linkedin, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { Mail, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Typewriter } from "react-simple-typewriter";
 import NavLink from "../components/NavLink";
 
@@ -74,11 +75,11 @@ function Home() {
 							<a href="mailto:angelatyk@gmail.com">
 								<Mail />
 							</a>
-							<a href="https://github.com/angelatyk">
-								<Github />
+							<a href="https://github.com/angelatyk" aria-label="GitHub">
+								<SiGithub size={24} />
 							</a>
-							<a href="https://linkedin.com/in/angelatyk">
-								<Linkedin />
+							<a href="https://linkedin.com/in/angelatyk" aria-label="LinkedIn">
+								<SiLinkedin size={24} />
 							</a>
 						</div>
 					</div>

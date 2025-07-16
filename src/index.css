@@ -40,6 +40,7 @@
   max-width: 80rem;
 }
 
+/* navigation classes */
 @utility nav-container {
   @apply flex justify-between items-center py-4;
   background-color: var(--color-bg);
