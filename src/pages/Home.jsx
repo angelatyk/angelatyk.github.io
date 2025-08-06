@@ -31,16 +31,16 @@ function Home() {
 		<>
 			{/* Navigation */}
 			<nav className="nav-container container">
-				<div className="text-xl font-bold">AK.</div>
+				<div className="logo">AK.</div>
 
-				<div className="flex items-center gap-4">
+				<div className="nav-menu">
 					{/* Dark Mode Toggle */}
 					<button onClick={toggleDarkMode} aria-label="Toggle dark mode">
 						{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
 					</button>
 
 					{/* Desktop Menu */}
-					<ul className="nav-menu">
+					<ul className="nav-menu-desktop">
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
 						<NavLink link="projects" label="Projects" />
@@ -48,7 +48,7 @@ function Home() {
 					</ul>
 
 					{/* Mobile Toggle Button */}
-					<button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+					<button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
 						{menuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 				</div>
@@ -56,7 +56,7 @@ function Home() {
 
 			{/* Mobile Menu */}
 			{menuOpen && (
-				<ul className="mobile-menu">
+				<ul className="nav-menu-mobile">
 					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
 					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
 					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
@@ -65,13 +65,19 @@ function Home() {
 			)}
 
 			<main className="container">
-				<section>
-					{/* Hero */}
-					<div>
-						<h1>Hello, I am Angela Kwok</h1>
-						I am a <Typewriter words={["Software Engineer", "Full-Stack Developer", "AI/ML Engineer"]} loop={true} cursor cursorStyle="_" typeSpeed={70} deleteSpeed={50} delaySpeed={1500} />
-						<p>Solving Real-World Problems with AI and Web Technologies</p>
-						<div>
+				{/* Hero */}
+				<section className="hero-section" id="hero">
+					<div className="hero-content">
+						<h1 className="hero-heading">Angela Kwok</h1>
+						<h2 className="hero-subheading">Software Engineer · Full-Stack Developer · AI/ML Engineer</h2>
+						<p className="hero-intro">
+							I{" "}
+							<span className="hero-typewriter">
+								<Typewriter words={["build", "solve", "explore"]} loop={true} cursor cursorStyle="_" typeSpeed={70} deleteSpeed={50} delaySpeed={1500} />
+							</span>
+						</p>
+						<p className="hero-subtext">Creating innovative solutions with AI and Web Technologies.</p>
+						<div className="hero-contact">
 							<a href="mailto:angelatyk@gmail.com">
 								<Mail />
 							</a>

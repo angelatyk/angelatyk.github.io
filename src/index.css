@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* theme variables */
 @theme {
   --color-bg: hsl(var(--background));
   --color-text: hsl(var(--foreground));
@@ -7,6 +8,7 @@
   --color-secondary: hsl(var(--secondary));
 }
 
+/* base styles */
 @layer base {
   :root {
     --background: 201 40% 98%;
@@ -40,7 +42,11 @@
   max-width: 80rem;
 }
 
-/* navigation classes */
+@utility logo {
+  @apply text-xl font-bold;
+}
+
+/* navigation */
 @utility nav-container {
   @apply flex justify-between items-center py-4;
   background-color: var(--color-bg);
@@ -48,11 +54,21 @@
 }
 
 @utility nav-menu {
+  @apply flex items-center gap-4;
+}
+
+@utility nav-menu-desktop {
   @apply hidden md:flex gap-4;
 }
 
-@utility mobile-menu {
-  @apply flex flex-col md:hidden bg-white dark:bg-zinc-900 px-4 py-2 gap-2;
+@utility nav-menu-mobile {
+  @apply flex flex-col md:hidden px-4 py-2 gap-2;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@utility mobile-toggle {
+  @apply md:hidden;
 }
 
 @utility nav-link {
@@ -67,6 +83,7 @@
   color: var(--color-primary);
 }
 
+/* buttons */
 @utility btn-primary {
   @apply px-6 py-2 rounded-full font-medium;
   background-color: var(--color-primary);
@@ -77,4 +94,49 @@
 .btn-primary:hover {
   background-color: hsl(var(--primary) / 0.8);
   transform: scale(1.05);
+}
+
+/* hero section */
+@utility hero-section {
+  @apply min-h-screen flex flex-col justify-start px-6 sm:px-10 md:px-20 pt-20 sm:pt-30 md:pt-50;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+
+@utility hero-content {
+  @apply max-w-2xl w-full space-y-4;
+  animation: fade-in 1s ease-in-out;
+}
+
+@utility hero-heading {
+  @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-1;
+}
+
+@utility hero-subheading {
+  @apply text-lg sm:text-xl md:text-2xl font-medium;
+  color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
+}
+
+@utility hero-intro {
+  @apply text-base sm:text-lg;
+  color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
+}
+
+@utility hero-typewriter {
+  @apply font-semibold;
+  color: var(--color-primary);
+}
+
+@utility hero-subtext {
+  @apply text-base sm:text-lg md:text-xl;
+  color: var(--color-text);
+}
+
+@utility hero-contact {
+  @apply flex gap-4 mt-6;
+}
+
+.hero-contact a {
+  @apply hover:opacity-80 transition;
 }
