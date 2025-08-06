@@ -51,6 +51,10 @@
   @apply flex justify-between items-center py-4;
   background-color: var(--color-bg);
   color: var(--color-text);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
 }
 
 @utility nav-menu {
@@ -103,7 +107,6 @@
   color: var(--color-text);
 }
 
-
 @utility hero-content {
   @apply max-w-2xl w-full space-y-4;
   animation: fade-in 1s ease-in-out;
@@ -139,4 +142,20 @@
 
 .hero-contact a {
   @apply hover:opacity-80 transition;
+}
+
+/* about section */
+@utility about-section {
+  @apply min-h-screen flex flex-col justify-center px-6 sm:px-10 md:px-20 py-20;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@utility about-content {
+  @apply max-w-2xl w-full space-y-6;
+  animation: fade-in 1s ease-in-out;
+}
+
+@utility about-heading {
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
 }
