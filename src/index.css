@@ -6,6 +6,12 @@
   --color-text: hsl(var(--foreground));
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
+
+  /* media query breakpoints */
+  --break-sm: 640px;
+  --break-md: 768px;
+  --break-lg: 1024px;
+  --break-xl: 1280px;
 }
 
 /* base styles */
@@ -29,10 +35,10 @@
   }
 
   body {
+    @apply transition-colors duration-300 ease-in-out;
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: ui-sans-serif, system-ui, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -170,4 +176,45 @@
 
 @utility skill-heading {
   @apply text-lg sm:text-xl font-semibold text-primary;
+}
+
+/* floating contact bar */
+.floating-contact-bar {
+  position: fixed;
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  flex-direction: row;
+}
+
+/* Desktop and up (md: 768px+) */
+@media (min-width: 768px) {
+  .floating-contact-bar {
+    top: 50%;
+    left: 1.5rem;
+    bottom: auto;
+    right: auto;
+    transform: translateY(-50%);
+    flex-direction: column;
+  }
+}
+
+.floating-contact-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.floating-contact-bar a:hover {
+  color: var(--color-accent, #007aff);
 }

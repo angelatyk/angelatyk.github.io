@@ -1,12 +1,16 @@
 import { Mail, Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Typewriter } from "react-simple-typewriter";
+import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
 
 function Home() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
+	const [showFloatingBar, setShowFloatingBar] = useState(false);
+
+	const heroRef = useRef(null);
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem("theme");
@@ -18,6 +22,24 @@ function Home() {
 			setIsDarkMode(systemPrefersDark);
 			document.documentElement.classList.toggle("dark", systemPrefersDark);
 		}
+
+		// only show floating bar when hero section not visible
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setShowFloatingBar(!entry.isIntersecting);
+			},
+			{ threshold: 0.5 }
+		);
+
+		if (heroRef.current) {
+			observer.observe(heroRef.current);
+		}
+
+		return () => {
+			if (heroRef.current) {
+				observer.unobserve(heroRef.current);
+			}
+		};
 	}, []);
 
 	const toggleDarkMode = () => {
@@ -68,7 +90,7 @@ function Home() {
 
 			<main className="container">
 				{/* Hero */}
-				<section className="hero-section" id="hero">
+				<section className="hero-section" id="hero" ref={heroRef}>
 					<div className="section-content">
 						<h1 className="hero-heading">Angela Kwok</h1>
 						<h2 className="hero-subheading">Software Engineer · Full-Stack Developer · AI/ML Engineer</h2>
@@ -142,6 +164,9 @@ function Home() {
 				{/* Resume */}
 				<section id="Resume"></section>
 			</main>
+
+			{/* Floating Contact Bar */}
+			{showFloatingBar && <FloatingContactBar />}
 		</>
 	);
 }
