@@ -31,7 +31,9 @@ function Home() {
 		<>
 			{/* Navigation */}
 			<nav className="nav-container container">
-				<div className="logo">AK.</div>
+				<a href="#hero" className="logo">
+					<div className="logo">AK.</div>
+				</a>
 
 				<div className="nav-menu">
 					{/* Dark Mode Toggle */}
