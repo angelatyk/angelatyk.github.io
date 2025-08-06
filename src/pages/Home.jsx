@@ -80,13 +80,13 @@ function Home() {
 						</p>
 						<p className="hero-subtext">Creating innovative solutions with AI and Web Technologies.</p>
 						<div className="hero-contact">
-							<a href="mailto:angelatyk@gmail.com">
+							<a href="mailto:angelatyk@gmail.com" aria-label="Email">
 								<Mail />
 							</a>
-							<a href="https://github.com/angelatyk" aria-label="GitHub">
+							<a href="https://github.com/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
 								<SiGithub size={24} />
 							</a>
-							<a href="https://linkedin.com/in/angelatyk" aria-label="LinkedIn">
+							<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 								<SiLinkedin size={24} />
 							</a>
 						</div>
