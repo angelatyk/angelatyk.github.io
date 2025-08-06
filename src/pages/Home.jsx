@@ -67,7 +67,7 @@ function Home() {
 			<main className="container">
 				{/* Hero */}
 				<section className="hero-section" id="hero">
-					<div className="hero-content">
+					<div className="section-content">
 						<h1 className="hero-heading">Angela Kwok</h1>
 						<h2 className="hero-subheading">Software Engineer · Full-Stack Developer · AI/ML Engineer</h2>
 						<p className="hero-intro">
@@ -92,9 +92,9 @@ function Home() {
 				</section>
 
 				{/* About */}
-				<section className="about-section" id="about">
-					<div className="about-content">
-						<h2 className="about-heading">Me.</h2>
+				<section className="section-container" id="about">
+					<div className="section-content">
+						<h2 className="section-heading">Me.</h2>
 						<p>
 							I’ve been building things my whole life, from Lego castles as a kid to full-stack applications today. I still chase that same satisfaction I felt back then, the moment when everything
 							clicks into place and just works. That spark for creating and problem-solving still drives everything I do.
@@ -111,14 +111,27 @@ function Home() {
 				</section>
 
 				{/* Skills */}
-				<section id="skills">
-					<h2>Skills</h2>
-					<p>Proficient: Java, JavaScript, Python, React, Node.js, Express.js, Spring, Hibernate, MySQL, Oracle, RESTful APIs, Git</p>
-					<p>
-						Knowledgeable: TensorFlow, Keras, Scikit-learn, PyTorch, Hugging Face, Pandas, NumPy, Prompt Engineering, Model Deployment, Data Preprocessing, Feature Engineering, Deep Learning, Natural
-						Language Processing, Computer Vision
-					</p>
-					<p>Familiar: Selenium, Robot Framework, OAuth, JWT, Heroku</p>
+				<section className="section-container" id="skills">
+					<div className="section-content">
+						<h2 className="section-heading">Skills.</h2>
+						<div className="skills-list">
+							<div className="skill-category">
+								<h3 className="skill-heading">Proficient</h3>
+								<p>Java, JavaScript, Python, React, Node.js, Express.js, Spring, Hibernate, MySQL, Oracle, RESTful APIs, Git</p>
+							</div>
+							<div className="skill-category">
+								<h3 className="skill-heading">Knowledgeable</h3>
+								<p>
+									TensorFlow, Keras, Scikit-learn, PyTorch, Hugging Face, Pandas, NumPy, Deep Learning, Natural Language Processing, Computer Vision, Reinforcement Learning, Prompt Engineering, Data
+									Preprocessing, Feature Engineering, Model Deployment
+								</p>
+							</div>
+							<div className="skill-category">
+								<h3 className="skill-heading">Familiar</h3>
+								<p>Selenium, Robot Framework, OAuth, JWT, Heroku</p>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				{/* Projects */}

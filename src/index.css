@@ -100,6 +100,21 @@
   transform: scale(1.05);
 }
 
+@utility section-container {
+  @apply min-h-screen flex flex-col justify-center px-6 sm:px-10 md:px-20 py-20;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@utility section-content {
+  @apply max-w-2xl w-full space-y-6;
+  animation: fade-in 1s ease-in-out;
+}
+
+@utility section-heading {
+  @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
+}
+
 /* hero section */
 @utility hero-section {
   @apply min-h-screen flex flex-col justify-start px-6 sm:px-10 md:px-20 pt-20 sm:pt-30 md:pt-50;
@@ -144,18 +159,15 @@
   @apply hover:opacity-80 transition;
 }
 
-/* about section */
-@utility about-section {
-  @apply min-h-screen flex flex-col justify-center px-6 sm:px-10 md:px-20 py-20;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+/* skills section */
+@utility skills-list {
+  @apply space-y-6;
 }
 
-@utility about-content {
-  @apply max-w-2xl w-full space-y-6;
-  animation: fade-in 1s ease-in-out;
+@utility skill-category {
+  @apply space-y-2;
 }
 
-@utility about-heading {
-  @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
+@utility skill-heading {
+  @apply text-lg sm:text-xl font-semibold text-primary;
 }
