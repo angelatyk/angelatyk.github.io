@@ -148,8 +148,8 @@
     @apply flex gap-4 mt-6;
   }
 
-  .hero-contact a {
-    @apply hover:opacity-80 transition;
+  .hero-contact a:hover {
+    color: var(--color-primary);
   }
 
   .skills-list {
