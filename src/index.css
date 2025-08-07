@@ -11,16 +11,16 @@
 /* base styles */
 @layer base {
   :root {
-    --background: 201 40% 98%;
-    --foreground: 222 47% 11%;
-    --primary: 174 59% 41%;
-    --secondary: 45 100% 51%;
+    --background: 222 47% 98%;
+    --foreground: 222 47% 8%;
+    --primary: 268 65% 50%;
+    --secondary: 45 100% 50%;
   }
 
   .dark {
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
-    --primary: 174 59% 61%;
+    --primary: 268 65% 70%;
     --secondary: 45 100% 70%;
   }
 
@@ -32,7 +32,7 @@
     @apply transition-colors duration-300 ease-in-out;
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Inter', 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
   }
 }
 
@@ -43,7 +43,7 @@
   }
 
   .logo {
-    @apply text-xl font-bold;
+    @apply text-3xl font-bold;
   }
 
   .nav-container {
@@ -61,7 +61,8 @@
   }
 
   .nav-menu-mobile {
-    @apply flex flex-col md:hidden px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40;
+    @apply flex flex-col px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40;
+    @apply md:hidden;
     background-color: var(--color-bg);
     color: var(--color-text);
   }
@@ -71,15 +72,17 @@
   }
 
   .nav-link {
-    @apply inline-block px-4 py-2 font-medium text-center text-text transition-colors duration-300 hover:text-primary;
-  }
+    @apply inline-block px-4 py-2 font-medium text-center text-text;
+    @apply transition-colors duration-300;
 
-  .nav-link:hover {
-    color: var(--color-primary);
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 
   .btn-primary {
-    @apply px-6 py-2 font-medium transition duration-300 ease-in-out;
+    @apply px-6 py-2 font-medium;
+    @apply transition duration-300 ease-in-out;
     border-radius: 0.5rem;
     background-color: var(--color-primary);
     color: hsl(210 40% 98%);
@@ -91,7 +94,12 @@
   }
 
   .btn-outline {
-    @apply border border-primary text-primary rounded px-4 py-2 transition duration-300 hover:bg-primary hover:text-white;
+    @apply border rounded px-4 py-2 border-primary text-primary;
+    @apply transition duration-300;
+
+    &:hover {
+      @apply bg-primary text-white;
+    }
   }
 
   .section-container {
@@ -110,22 +118,27 @@
     @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
   }
 
+  .section-heading::after {
+    content: '';
+    display: block;
+    width: 3.5rem;
+    height: 2px;
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    margin-top: 0.5rem;
+    border-radius: 9999px;
+  }
+
   .hero-content {
     @apply max-w-2xl w-full space-y-4;
     animation: fade-in 1s ease-in-out;
   }
 
   .hero-heading {
-    @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-1;
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-1 md:pt-20;
   }
 
   .hero-subheading {
     @apply text-lg sm:text-xl md:text-2xl font-medium;
-    color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
-  }
-
-  .hero-intro {
-    @apply text-base sm:text-lg;
     color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
   }
 
@@ -141,10 +154,10 @@
 
   .hero-contact {
     @apply flex gap-4 mt-6;
-  }
 
-  .hero-contact a:hover {
-    color: var(--color-primary);
+    a:hover {
+      color: var(--color-primary);
+    }
   }
 
   .skills-list {
@@ -160,19 +173,37 @@
   }
 
   .floating-contact-bar {
-    @apply fixed z-[100] flex gap-4 text-sm shadow-lg rounded-md px-4 py-3 flex-row bottom-4 left-1/2 -translate-x-1/2 text-[--color-text];
-
-    @apply md:top-1/2 md:left-6 md:bottom-auto md:translate-x-0 md:-translate-y-1/2 md:flex-col;
-
+    @apply fixed z-[100] text-sm shadow-lg rounded-md;
+    color: var(--color-text);
     background-color: var(--color-bg);
+    @apply px-4 py-3;
+
+    /* mobile positioning */
+    @apply bottom-4 left-1/2 -translate-x-1/2 flex flex-row gap-4;
+
+    /* desktop positioning */
+    @apply md:top-1/2 md:left-6 md:bottom-auto md:translate-y-[-50%] md:translate-x-0 md:flex-col;
+
+    @apply transition-all duration-500 ease-in-out;
   }
 
   .floating-contact-bar a {
-    @apply flex items-center justify-center transition;
+    @apply flex items-center justify-center;
+    @apply transition;
     color: inherit;
+
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 
-  .floating-contact-bar a:hover {
-    color: var(--color-primary);
+  .visible-bar {
+    @apply opacity-100 pointer-events-auto;
+    @apply translate-y-0 md:translate-x-0 md:translate-y-0;
+  }
+
+  .hidden-bar {
+    @apply opacity-0 pointer-events-none;
+    @apply translate-y-6 scale-95 md:translate-x-[-2rem] md:translate-y-0;
   }
 }

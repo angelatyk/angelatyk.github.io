@@ -1,9 +1,9 @@
 import { Mail } from "lucide-react";
 import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
 
-const FloatingContactBar = () => {
+const FloatingContactBar = ({ className = "" }) => {
 	return (
-		<div className="floating-contact-bar">
+		<div className={`floating-contact-bar ${className}`}>
 			<a href="mailto:angelatyk@gmail.com" aria-label="Email">
 				<Mail size={20} />
 			</a>

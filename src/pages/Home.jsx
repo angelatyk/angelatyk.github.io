@@ -94,7 +94,7 @@ function Home() {
 					<div className="section-content">
 						<h1 className="hero-heading">Angela Kwok</h1>
 						<h2 className="hero-subheading">Software Engineer · Full-Stack Developer · AI/ML Engineer</h2>
-						<p className="hero-intro">
+						<p className="hero-subtext">
 							I{" "}
 							<span className="hero-typewriter">
 								<Typewriter words={["build", "solve", "explore"]} loop={true} cursor cursorStyle="_" typeSpeed={70} deleteSpeed={50} delaySpeed={1500} />
@@ -166,7 +166,7 @@ function Home() {
 			</main>
 
 			{/* Floating Contact Bar */}
-			{showFloatingBar && <FloatingContactBar />}
+			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
 		</>
 	);
 }
