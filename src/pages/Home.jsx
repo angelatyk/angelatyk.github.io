@@ -90,7 +90,7 @@ function Home() {
 
 			<main className="container">
 				{/* Hero */}
-				<section className="hero-section" id="hero" ref={heroRef}>
+				<section className="section-container" id="hero" ref={heroRef}>
 					<div className="section-content">
 						<h1 className="hero-heading">Angela Kwok</h1>
 						<h2 className="hero-subheading">Software Engineer · Full-Stack Developer · AI/ML Engineer</h2>
