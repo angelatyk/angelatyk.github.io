@@ -1,6 +1,6 @@
 import { Mail, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
 import { Typewriter } from "react-simple-typewriter";
 import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
@@ -68,7 +68,7 @@ function Home() {
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
 						<NavLink link="projects" label="Projects" />
-						<NavLink link="resume" label="Resume" />
+						<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download className="btn-outline" />
 					</ul>
 
 					{/* Mobile Toggle Button */}
@@ -84,7 +84,7 @@ function Home() {
 					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
 					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
 					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
-					<NavLink link="resume" label="Resume" onClick={() => setMenuOpen(false)} />
+					<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download onClick={() => setMenuOpen(false)} />
 				</ul>
 			)}
 
@@ -110,6 +110,9 @@ function Home() {
 							</a>
 							<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 								<SiLinkedin size={24} />
+							</a>
+							<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume">
+								<SiGoogledocs size={24} />
 							</a>
 						</div>
 					</div>
@@ -160,9 +163,6 @@ function Home() {
 
 				{/* Projects */}
 				<section id="Projects"></section>
-
-				{/* Resume */}
-				<section id="Resume"></section>
 			</main>
 
 			{/* Floating Contact Bar */}

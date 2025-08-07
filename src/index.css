@@ -61,7 +61,7 @@
   }
 
   .nav-menu-mobile {
-    @apply flex flex-col md:hidden px-4 py-2 gap-2;
+    @apply flex flex-col md:hidden px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40;
     background-color: var(--color-bg);
     color: var(--color-text);
   }
@@ -71,8 +71,7 @@
   }
 
   .nav-link {
-    @apply px-4 py-2 font-medium transition-colors;
-    color: var(--color-text);
+    @apply inline-block px-4 py-2 font-medium text-center text-text transition-colors duration-300 hover:text-primary;
   }
 
   .nav-link:hover {
@@ -89,6 +88,10 @@
   .btn-primary:hover {
     background-color: hsl(var(--primary) / 0.8);
     transform: scale(1.05);
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary rounded px-4 py-2 transition duration-300 hover:bg-primary hover:text-white;
   }
 
   .section-container {

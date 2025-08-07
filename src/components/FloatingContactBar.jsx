@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
 
 const FloatingContactBar = () => {
 	return (
@@ -12,6 +12,9 @@ const FloatingContactBar = () => {
 			</a>
 			<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 				<SiLinkedin size={20} />
+			</a>
+			<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume">
+				<SiGoogledocs size={20} />
 			</a>
 		</div>
 	);
