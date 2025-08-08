@@ -16,16 +16,16 @@ function Hero({ heroRef }) {
 				</p>
 				<p className="hero-subtext">Creating innovative solutions with AI and Web Technologies.</p>
 				<div className="hero-contact">
-					<a href="mailto:angelatyk@gmail.com" aria-label="Email">
+					<a href="mailto:angelatyk@gmail.com" aria-label="Email" title="Email">
 						<Mail />
 					</a>
-					<a href="https://github.com/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+					<a href="https://github.com/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
 						<SiGithub size={24} />
 					</a>
-					<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
 						<SiLinkedin size={24} />
 					</a>
-					<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume">
+					<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
 						<SiGoogledocs size={24} />
 					</a>
 				</div>
