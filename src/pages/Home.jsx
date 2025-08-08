@@ -1,8 +1,9 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Heart, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
 import About from "../pages/About";
+import ContactCTA from "../pages/ContactCTA";
 import Hero from "../pages/Hero";
 import Skills from "../pages/Skills";
 
@@ -95,10 +96,22 @@ function Home() {
 				<Skills />
 				{/* Projects */}
 				<section id="Projects"></section>
+				<ContactCTA />
 			</main>
 
 			{/* Floating Contact Bar */}
 			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
+
+			<footer className="footer-container">
+				<div className="footer-content">
+					<span>
+						Made with <Heart className="inline text-red-500 w-4= h-4" /> by Angela Kwok
+					</span>
+					<a href="mailto:angelatyk@gmail.com" className="contact-email btn-outline">
+						angelatyk@gmail.com
+					</a>
+				</div>
+			</footer>
 		</>
 	);
 }

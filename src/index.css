@@ -22,6 +22,7 @@
     --foreground: 213 31% 91%;
     --primary: 268 65% 70%;
     --secondary: 45 100% 70%;
+    --background-light: hsla(222, 47%, 18%, 0.5);
   }
 
   html {
@@ -36,12 +37,15 @@
   }
 }
 
-/* utility Styles */
+/* utility styles */
 @layer utilities {
+
+  /* container */
   .container {
     @apply mx-auto px-4 max-w-7xl;
   }
 
+  /* logo */
   .logo {
     @apply text-3xl font-bold;
   }
@@ -177,6 +181,56 @@
     @apply text-lg sm:text-xl font-semibold text-primary;
   }
 
+  /* contact CTA */
+  .contact-section {
+    @apply flex min-h-screen w-full items-center justify-center;
+    @apply p-4 md:p-8;
+  }
+
+  .contact-card {
+    @apply flex w-full max-w-4xl flex-col items-center justify-center;
+    @apply space-y-8 rounded-2xl p-6 text-center;
+    @apply shadow-lg md:p-12 lg:p-16;
+    background-color: var(--color-bg-card);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .contact-heading {
+    @apply text-4xl font-semibold;
+  }
+
+  .text-accent {
+    @apply text-purple-600;
+  }
+
+  .contact-subtext {
+    @apply text-lg sm:text-xl font-medium;
+    color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
+  }
+
+  .contact-link {
+    @apply inline-block text-lg font-medium text-primary;
+    @apply hover:text-purple-700 relative;
+  }
+
+  .contact-link-text {
+    @apply inline-block;
+  }
+
+  .contact-link-animation {
+    @apply absolute -bottom-1 h-0.5 w-full origin-left;
+    @apply scale-x-0 rounded-full transition-all duration-500 ease-out;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  }
+
+  .contact-link:hover .contact-link-animation {
+    @apply scale-x-100;
+  }
+
+  .dark .contact-card {
+    background-color: var(--background-light);
+  }
+
   /* floating contact bar */
   .floating-contact-bar {
     @apply fixed z-[100] text-sm shadow-lg rounded-md;
@@ -211,5 +265,22 @@
   .hidden-bar {
     @apply opacity-0 pointer-events-none;
     @apply translate-y-6 scale-95 md:translate-x-[-2rem] md:translate-y-0;
+  }
+
+  .dark .floating-contact-bar {
+    background-color: var(--background-light);
+  }
+
+  .footer-container {
+    @apply flex justify-between items-center p-4 hidden md:block;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .footer-content {
+    @apply flex items-center justify-between w-full max-w-7xl mx-auto text-sm;
   }
 }
