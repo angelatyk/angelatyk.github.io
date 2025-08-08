@@ -102,14 +102,14 @@ function Home() {
 			{/* Floating Contact Bar */}
 			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
 
-			<footer className="footer-container">
+			<footer className="footer-container container">
 				<div className="footer-content">
 					<span>
-						Made with <Heart className="inline text-red-500 w-4= h-4" /> by Angela Kwok
+						Made with <Heart className="inline text-red-500 w-4 h-4" /> by&nbsp;
+						<a href="mailto:angelatyk@gmail.com" className="footer-email">
+							Angela Kwok
+						</a>
 					</span>
-					<a href="mailto:angelatyk@gmail.com" className="contact-email btn-outline">
-						angelatyk@gmail.com
-					</a>
 				</div>
 			</footer>
 		</>

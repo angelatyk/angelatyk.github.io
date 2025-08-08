@@ -6,6 +6,7 @@
   --color-text: hsl(var(--foreground));
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
+  --color-bg-light: hsl(var(--background-light));
 }
 
 /* base styles */
@@ -15,6 +16,7 @@
     --foreground: 222 47% 8%;
     --primary: 268 65% 50%;
     --secondary: 45 100% 50%;
+    --background-light: 222 47% 98%;
   }
 
   .dark {
@@ -112,8 +114,6 @@
   .section-container {
     @apply min-h-screen flex flex-col justify-start px-6 sm:px-10 md:px-20 pt-20 sm:pt-32 md:pt-40;
     @apply md:scroll-mt-24;
-    background-color: var(--color-bg);
-    color: var(--color-text);
   }
 
   .section-content {
@@ -191,7 +191,7 @@
     @apply flex w-full max-w-4xl flex-col items-center justify-center;
     @apply space-y-8 rounded-2xl p-6 text-center;
     @apply shadow-lg md:p-12 lg:p-16;
-    background-color: var(--color-bg-card);
+    background-color: var(--color-bg-light);
     transition: background-color 0.3s ease-in-out;
   }
 
@@ -242,7 +242,7 @@
     @apply bottom-4 left-1/2 -translate-x-1/2 flex flex-row gap-4;
 
     /* desktop positioning */
-    @apply md:top-1/2 md:left-6 md:bottom-auto md:translate-y-[-50%] md:translate-x-0 md:flex-col;
+    @apply md:top-2/5 md:left-6 md:bottom-auto md:translate-y-[-50%] md:translate-x-0 md:flex-col;
 
     @apply transition-all duration-500 ease-in-out;
   }
@@ -272,7 +272,7 @@
   }
 
   .footer-container {
-    @apply flex justify-between items-center p-4 hidden md:block;
+    @apply flex justify-center items-center py-4 hidden md:block;
     background-color: var(--color-bg);
     color: var(--color-text);
     bottom: 0;
@@ -281,6 +281,10 @@
   }
 
   .footer-content {
-    @apply flex items-center justify-between w-full max-w-7xl mx-auto text-sm;
+    @apply flex items-center justify-center w-full max-w-7xl mx-auto text-sm text-center;
+  }
+
+  .footer-email {
+    @apply text-primary;
   }
 }
