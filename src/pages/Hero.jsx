@@ -14,7 +14,7 @@ function Hero({ heroRef }) {
 						<Typewriter words={["build", "solve", "explore"]} loop={true} cursor cursorStyle="_" typeSpeed={70} deleteSpeed={50} delaySpeed={1500} />
 					</span>
 				</p>
-				<p className="hero-subtext">Creating innovative solutions with AI and Web Technologies.</p>
+				<p className="hero-subtext">Blending AI and web technologies to create user-focused solutions that transform complexity into intuitive, elegant experiences.</p>
 				<div className="hero-contact">
 					<a href="mailto:angelatyk@gmail.com" aria-label="Email" title="Email">
 						<Mail />
