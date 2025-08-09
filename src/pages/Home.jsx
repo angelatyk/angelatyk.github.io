@@ -53,6 +53,10 @@ function Home() {
 
 	return (
 		<>
+			{/* Background Glows */}
+			<div className="extra-glow-top"></div>
+			<div className="extra-glow-bottom"></div>
+
 			{/* Navigation */}
 			<nav className="nav-container container">
 				<a href="#" className="logo">
