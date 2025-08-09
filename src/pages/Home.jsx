@@ -1,4 +1,4 @@
-import { Heart, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowDown, Heart, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
@@ -11,8 +11,10 @@ function Home() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [showFloatingBar, setShowFloatingBar] = useState(false);
+	const [showScrollIcon, setShowScrollIcon] = useState(true);
 
 	const heroRef = useRef(null);
+	const contactRef = useRef(null);
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem("theme");
@@ -26,20 +28,44 @@ function Home() {
 		}
 
 		// only show floating bar when hero section not visible
-		const observer = new IntersectionObserver(
+		const heroObserver = new IntersectionObserver(
 			([entry]) => {
 				setShowFloatingBar(!entry.isIntersecting);
 			},
-			{ threshold: 0.5 }
+			{ threshold: 0.1 }
 		);
 
 		if (heroRef.current) {
-			observer.observe(heroRef.current);
+			heroObserver.observe(heroRef.current);
 		}
 
+		// only show scroll icon when contact CTA section not visible
+		const contactObserver = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					window.scrollTo({
+						top: document.body.scrollHeight,
+						behavior: "smooth",
+					});
+					setShowScrollIcon(false);
+				} else {
+					setShowScrollIcon(true);
+				}
+			},
+			{ threshold: 0.1 }
+		);
+
+		if (contactRef.current) {
+			contactObserver.observe(contactRef.current);
+		}
+
+		// cleanup observers when the component unmounts
 		return () => {
 			if (heroRef.current) {
-				observer.unobserve(heroRef.current);
+				heroObserver.unobserve(heroRef.current);
+			}
+			if (contactRef.current) {
+				contactObserver.unobserve(contactRef.current);
 			}
 		};
 	}, []);
@@ -49,6 +75,14 @@ function Home() {
 		document.documentElement.classList.toggle("dark", newTheme === "dark");
 		localStorage.setItem("theme", newTheme);
 		setIsDarkMode(!isDarkMode);
+	};
+
+	const scrollToNextSection = () => {
+		window.scrollBy({
+			top: window.innerHeight,
+			left: 0,
+			behavior: "smooth",
+		});
 	};
 
 	return (
@@ -95,12 +129,19 @@ function Home() {
 				<About />
 				<Skills />
 				{/* Projects */}
-				<section id="Projects"></section>
-				<ContactCTA />
+				{/* <section id="Projects"></section> */}
+				<ContactCTA contactRef={contactRef} />
 			</main>
 
 			{/* Floating Contact Bar */}
 			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
+
+			{/* Scroll Icon */}
+			{showScrollIcon && (
+				<div className="scroll-icon" id="scrollIcon" onClick={scrollToNextSection}>
+					<ArrowDown />
+				</div>
+			)}
 
 			<footer className="footer-container container">
 				<div className="footer-content">

@@ -1,6 +1,6 @@
-function ContactCTA() {
+function ContactCTA({ contactRef }) {
 	return (
-		<section className="contact-section">
+		<section className="contact-section" id="contact" ref={contactRef}>
 			<div className="contact-card">
 				<h2 className="contact-heading">
 					Let’s build something great <span className="text-accent">together.</span>
