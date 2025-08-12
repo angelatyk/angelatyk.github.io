@@ -2,29 +2,69 @@
 
 /* theme variables */
 @theme {
-  --color-bg: hsl(var(--background));
-  --color-text: hsl(var(--foreground));
-  --color-primary: hsl(var(--primary));
-  --color-secondary: hsl(var(--secondary));
-  --color-bg-light: hsl(var(--background-light));
+
+  /* light mode */
+  --color-text-primary-light: rgb(34, 34, 34);
+  --color-text-secondary-light: rgb(85, 85, 85);
+  --color-text-gradient-light: linear-gradient(to right, rgb(142, 82, 247), rgb(70, 165, 243));
+  --color-accent-light: rgb(142, 102, 205);
+  --color-background-card-light: rgb(255, 255, 255);
+  --color-background-mobile-menu-light: rgb(255, 255, 255);
+  --background-accent-pink-light: rgba(255, 209, 220, 0.9);
+  --background-accent-blue-light: rgba(196, 240, 255, 0.9);
+  --background-accent-yellow-light: rgba(255, 247, 206, 0.85);
+  --background-main1-light: rgb(250, 249, 246);
+  --background-main2-light: rgb(240, 244, 255);
+
+  /* dark mode */
+  --color-text-primary-dark: rgb(240, 240, 245);
+  --color-text-secondary-dark: rgb(220, 225, 235);
+  --color-text-gradient-dark: linear-gradient(to right, var(--color-accent), rgb(119, 190, 248));
+  --color-accent-dark: rgb(181, 157, 255);
+  --color-background-card-dark: rgba(255, 255, 255, 0.2);
+  --color-background-mobile-menu-dark: rgb(255, 255, 255);
+  --background-accent-pink-dark: rgba(120, 60, 90, 0.4);
+  --background-accent-blue-dark: rgba(70, 110, 130, 0.4);
+  --background-accent-yellow-dark: rgba(130, 110, 60, 0.35);
+  --background-main1-dark: rgb(11, 14, 20);
+  --background-main2-dark: rgb(26, 31, 43);
+
 }
 
-/* base styles */
 @layer base {
   :root {
-    --background: 222 47% 98%;
-    --foreground: 222 47% 8%;
-    --primary: 268 65% 50%;
-    --secondary: 45 100% 50%;
-    --background-light: 222 47% 98%;
+    --color-header: black;
+    --color-text: var(--color-text-primary-light);
+    --color-text-secondary: var(--ccolor-text-secondary-light);
+    --color-accent: var(--color-accent-light);
+    --color-background-card: var(--color-background-card-light);
+    --color-background-mobile-menu: var(--color-background-mobile-menu-light);
+    --color-text-gradient: var(--color-text-gradient-light);
+
+    /* light mode background colors */
+    --background-accent-pink: var(--background-accent-pink-light);
+    --background-accent-blue: var(--background-accent-blue-light);
+    --background-accent-yellow: var(--background-accent-yellow-light);
+    --background-main1: var(--background-main1-light);
+    --background-main2: var(--background-main2-light);
   }
 
+  /* dark mode overrides */
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
-    --primary: 268 65% 70%;
-    --secondary: 45 100% 70%;
-    --background-light: hsl(222, 47%, 18%, 0.5);
+    --color-header: white;
+    --color-text: var(--color-text-primary-dark);
+    --color-text-secondary: var(--ccolor-text-secondary-dark) / 0.8;
+    --color-accent: var(--color-accent-dark);
+    --color-background-card: var(--color-background-card-dark);
+    --color-background-mobile-menu: var(--color-background-mobile-menu-dark);
+    --color-text-gradient: var(--color-text-gradient-dark);
+
+    /* dark mode background colors */
+    --background-accent-pink: var(--background-accent-pink-dark);
+    --background-accent-blue: var(--background-accent-blue-dark);
+    --background-accent-yellow: var(--background-accent-yellow-dark);
+    --background-main1: var(--background-main1-dark);
+    --background-main2: var(--background-main2-dark);
   }
 
   html {
@@ -33,29 +73,66 @@
 
   body {
     @apply transition-colors duration-300 ease-in-out;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    margin: 0;
     font-family: 'Inter', 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
+    color: var(--color-text);
+    background-color: var(--background-main1);
+    background-image:
+      radial-gradient(circle at 15% 20%, var(--background-accent-pink), transparent 75%),
+      radial-gradient(circle at 85% 30%, var(--background-accent-blue), transparent 75%),
+      radial-gradient(circle at 50% 85%, var(--background-accent-yellow), transparent 80%),
+      linear-gradient(135deg, var(--background-main1) 0%, var(--background-main2) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
   }
 }
 
 /* utility styles */
 @layer utilities {
 
+  /* animations */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   /* container */
   .container {
     @apply mx-auto px-4 max-w-7xl;
   }
 
+  .blurred-content {
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
   /* logo */
   .logo {
     @apply text-3xl font-bold;
+    color: var(--color-header)
   }
 
   /* navigation */
   .nav-container {
     @apply flex justify-between items-center py-4 sticky top-0 z-50 backdrop-blur;
-    color: var(--color-text);
   }
 
   .nav-menu {
@@ -67,10 +144,9 @@
   }
 
   .nav-menu-mobile {
-    @apply flex flex-col px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40;
+    @apply flex flex-col px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40 shadow-lg;
     @apply md:hidden;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: var(--color-background-card)
   }
 
   .mobile-toggle {
@@ -78,34 +154,28 @@
   }
 
   .nav-link {
-    @apply inline-block px-4 py-2 font-medium text-center text-text;
-    @apply transition-colors duration-300;
+    @apply inline-block px-4 py-2 font-medium text-center;
 
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-accent);
     }
+  }
+
+  .dark .nav-link {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
 
   /* buttons */
   .btn-primary {
-    @apply px-6 py-2 font-medium;
-    @apply transition duration-300 ease-in-out;
-    border-radius: 0.5rem;
-    background-color: var(--color-primary);
-    color: hsl(210 40% 98%);
-  }
-
-  .btn-primary:hover {
-    background-color: hsl(var(--primary) / 0.8);
-    transform: scale(1.05);
-  }
-
-  .btn-outline {
-    @apply border rounded px-4 py-2 border-primary text-primary;
-    @apply transition duration-300;
+    @apply border rounded px-4 py-2;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 
     &:hover {
-      @apply bg-primary text-white;
+      @apply text-white;
+      background-color: var(--color-accent);
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -116,8 +186,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
-    color: var(--color-primary);
-    opacity: 0.8;
+    color: var(--color-accent);
     cursor: pointer;
     animation: bounce 1.5s infinite;
 
@@ -126,79 +195,51 @@
     }
   }
 
-  @keyframes bounce {
-    0% {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-
-    100% {
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-
-  .scroll-icon:hover {
-    opacity: 1;
-  }
-
   /* section */
   .section-container {
     @apply min-h-screen flex flex-col justify-start px-6 sm:px-10 md:px-20 pt-20 sm:pt-32 md:pt-40;
     @apply md:scroll-mt-24;
+    opacity: 0;
+    animation: fade-in 1.5s forwards;
   }
 
   .section-content {
-    @apply max-w-2xl w-full space-y-6;
-    animation: fade-in 1s ease-in-out;
+    @apply max-w-2xl w-full space-y-6 leading-relaxed;
   }
 
   .section-heading {
     @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
   }
 
-  .section-heading::after {
-    content: '';
-    display: block;
-    width: 3.5rem;
-    height: 2px;
-    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
-    margin-top: 0.5rem;
-    border-radius: 9999px;
-  }
-
   /* hero */
   .hero-content {
     @apply max-w-2xl w-full space-y-4;
-    animation: fade-in 1s ease-in-out;
   }
 
   .hero-heading {
     @apply text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-1 md:pt-20;
+    color: var(--color-header);
   }
 
   .hero-subheading {
     @apply text-lg sm:text-xl md:text-2xl font-medium;
-    color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
+    color: var(--color-text-secondary);
   }
 
   .hero-typewriter {
     @apply font-semibold;
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 
   .hero-subtext {
     @apply text-base sm:text-lg md:text-xl;
-    color: var(--color-text);
   }
 
   .hero-contact {
     @apply flex gap-4 mt-6;
 
     a:hover {
-      color: var(--color-primary);
+      color: var(--color-accent);
     }
   }
 
@@ -212,39 +253,43 @@
   }
 
   .skill-heading {
-    @apply text-lg sm:text-xl font-semibold text-primary;
+    @apply text-lg sm:text-xl font-semibold;
+    color: var(--color-accent);
   }
 
   /* contact CTA */
   .contact-section {
     @apply flex min-h-screen w-full items-center justify-center;
     @apply p-4 md:p-8;
+    animation: fade-in 1.5s forwards;
   }
 
   .contact-card {
     @apply flex w-full max-w-4xl flex-col items-center justify-center;
     @apply space-y-8 rounded-2xl p-6 text-center;
     @apply shadow-lg md:p-12 lg:p-16;
-    background-color: var(--color-bg-light);
-    transition: background-color 0.3s ease-in-out;
+    background-color: var(--color-background-card);
   }
 
   .contact-heading {
     @apply text-4xl font-semibold;
   }
 
-  .text-accent {
-    @apply text-purple-600;
+  .text-gradient {
+    background: var(--color-text-gradient);
+    background-clip: text;
+    color: transparent;
   }
 
   .contact-subtext {
     @apply text-lg sm:text-xl font-medium;
-    color: var(--color-text-muted, hsl(var(--foreground) / 0.8));
+    color: var(--color-text-secondary);
   }
 
   .contact-link {
-    @apply inline-block text-lg font-medium text-primary;
-    @apply hover:text-purple-700 relative;
+    @apply inline-block text-lg font-medium;
+    color: var(--color-accent);
+    position: relative;
   }
 
   .contact-link-text {
@@ -254,23 +299,17 @@
   .contact-link-animation {
     @apply absolute -bottom-1 h-0.5 w-full origin-left;
     @apply scale-x-0 rounded-full transition-all duration-500 ease-out;
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    background: var(--color-text-gradient);
   }
 
   .contact-link:hover .contact-link-animation {
     @apply scale-x-100;
   }
 
-  .dark .contact-card {
-    background-color: var(--background-light);
-  }
-
   /* floating contact bar */
   .floating-contact-bar {
-    @apply fixed z-[100] text-sm shadow-lg rounded-md;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    @apply px-4 py-3;
+    @apply fixed z-[100] text-sm shadow-lg rounded-md px-4 py-3;
+    background-color: var(--color-background-card);
 
     /* mobile positioning */
     @apply bottom-4 left-1/2 -translate-x-1/2 flex flex-row gap-4;
@@ -287,7 +326,7 @@
     color: inherit;
 
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-accent);
     }
   }
 
@@ -301,13 +340,9 @@
     @apply translate-y-6 scale-95 md:translate-x-[-2rem] md:translate-y-0;
   }
 
-  .dark .floating-contact-bar {
-    background-color: hsl(222, 47%, 18%);
-  }
-
+  /* footer */
   .footer-container {
     @apply flex justify-center items-center py-4 hidden md:block;
-    color: var(--color-text);
     bottom: 0;
     width: 100%;
     z-index: 10;
@@ -318,7 +353,7 @@
   }
 
   .footer-email {
-    @apply text-primary;
+    color: var(--color-accent);
 
     &:hover {
       color: var(--color-text);

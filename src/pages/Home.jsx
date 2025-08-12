@@ -105,7 +105,7 @@ function Home() {
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
 						<NavLink link="projects" label="Projects" />
-						<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download className="btn-outline" />
+						<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download className="btn-primary" />
 					</ul>
 
 					{/* Mobile Toggle Button */}
@@ -126,7 +126,7 @@ function Home() {
 				</ul>
 			)}
 
-			<main className="container">
+			<main className={`container ${menuOpen ? "blurred-content" : ""}`}>
 				<Hero heroRef={heroRef} />
 				<About />
 				<Skills />
