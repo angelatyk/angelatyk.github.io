@@ -53,7 +53,7 @@
   .dark {
     --color-header: white;
     --color-text: var(--color-text-primary-dark);
-    --color-text-secondary: var(--color-text-secondary-dark) / 0.8;
+    --color-text-secondary: color-mix(in srgb, var(--color-text-secondary-dark) 80%, transparent);
     --color-accent: var(--color-accent-dark);
     --color-background-card: var(--color-background-card-dark);
     --color-background-mobile-menu: var(--color-background-mobile-menu-dark);
@@ -124,20 +124,29 @@
     }
   }
 
-  /* container */
-  .container {
-    @apply mx-auto px-4 max-w-7xl;
-  }
-
   .blurred-content {
     filter: blur(4px);
     pointer-events: none;
   }
 
+  .text-gradient {
+    background: var(--color-text-gradient);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer components {
+
   /* logo */
   .logo {
     @apply text-3xl font-bold;
     color: var(--color-header);
+  }
+
+  /* container */
+  .container {
+    @apply mx-auto px-4 max-w-7xl;
   }
 
   /* navigation */
@@ -301,12 +310,6 @@
 
   .contact-heading {
     @apply text-4xl font-semibold;
-  }
-
-  .text-gradient {
-    background: var(--color-text-gradient);
-    background-clip: text;
-    color: transparent;
   }
 
   .contact-subtext {
