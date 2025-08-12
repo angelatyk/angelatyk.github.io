@@ -35,7 +35,7 @@
   :root {
     --color-header: black;
     --color-text: var(--color-text-primary-light);
-    --color-text-secondary: var(--ccolor-text-secondary-light);
+    --color-text-secondary: var(--color-text-secondary-light);
     --color-accent: var(--color-accent-light);
     --color-background-card: var(--color-background-card-light);
     --color-background-mobile-menu: var(--color-background-mobile-menu-light);
@@ -53,7 +53,7 @@
   .dark {
     --color-header: white;
     --color-text: var(--color-text-primary-dark);
-    --color-text-secondary: var(--ccolor-text-secondary-dark) / 0.8;
+    --color-text-secondary: var(--color-text-secondary-dark) / 0.8;
     --color-accent: var(--color-accent-dark);
     --color-background-card: var(--color-background-card-dark);
     --color-background-mobile-menu: var(--color-background-mobile-menu-dark);
@@ -137,7 +137,7 @@
   /* logo */
   .logo {
     @apply text-3xl font-bold;
-    color: var(--color-header)
+    color: var(--color-header);
   }
 
   /* navigation */
@@ -191,20 +191,15 @@
 
   /* scroll button */
   .scroll-icon {
-    @apply fixed left-1/2 transform -translate-x-1/2 cursor-pointer z-10;
+    @apply fixed bottom-5 left-1/2 -translate-x-1/2 cursor-pointer z-10 w-[15px] h-[15px];
     --arrow-size: 15px;
     --arrow-speed: 3s;
     --arrow-color: var(--color-accent);
-    width: var(--arrow-size);
-    height: var(--arrow-size);
-    bottom: 20px;
   }
 
-  @media (min-width: 768px) {
-    .scroll-icon {
-      --arrow-size: 20px;
-      bottom: 50px;
-    }
+  .scroll-icon-md {
+    @apply bottom-[50px] w-[20px] h-[20px];
+    --arrow-size: 20px;
   }
 
   .scroll-icon .arrows::before,

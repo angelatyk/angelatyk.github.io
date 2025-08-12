@@ -140,7 +140,7 @@ function Home() {
 
 			{/* Scroll Icon */}
 			{showScrollIcon && (
-				<div className="scroll-icon" id="scrollIcon" onClick={scrollToNextSection}>
+				<div className="scroll-icon md:scroll-icon-md" id="scrollIcon" onClick={scrollToNextSection}>
 					<div className="arrows"></div>
 				</div>
 			)}
