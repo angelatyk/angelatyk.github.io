@@ -101,6 +101,7 @@ function Home() {
 
 					{/* Desktop Menu */}
 					<ul className="nav-menu-desktop">
+						<NavLink link="" label="Home" />
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
 						<NavLink link="projects" label="Projects" />
@@ -117,6 +118,7 @@ function Home() {
 			{/* Mobile Menu */}
 			{menuOpen && (
 				<ul className="nav-menu-mobile">
+					<NavLink link="" label="Home" onClick={() => setMenuOpen(false)} />
 					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
 					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
 					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
