@@ -1,4 +1,4 @@
-import { ArrowDown, Heart, Menu, Moon, Sun, X } from "lucide-react";
+import { Heart, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
@@ -141,7 +141,7 @@ function Home() {
 			{/* Scroll Icon */}
 			{showScrollIcon && (
 				<div className="scroll-icon" id="scrollIcon" onClick={scrollToNextSection}>
-					<ArrowDown />
+					<div className="arrows"></div>
 				</div>
 			)}
 
