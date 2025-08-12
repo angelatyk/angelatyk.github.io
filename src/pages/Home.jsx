@@ -32,7 +32,7 @@ function Home() {
 			([entry]) => {
 				setShowFloatingBar(!entry.isIntersecting);
 			},
-			{ threshold: 0.1 }
+			{ threshold: window.innerWidth <= 768 ? 0.5 : 0.9 }
 		);
 
 		if (heroRef.current) {
