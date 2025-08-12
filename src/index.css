@@ -28,7 +28,6 @@
   --background-accent-yellow-dark: rgba(130, 110, 60, 0.35);
   --background-main1-dark: rgb(11, 14, 20);
   --background-main2-dark: rgb(26, 31, 43);
-
 }
 
 @layer base {
@@ -85,54 +84,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-  }
-}
-
-/* utility styles */
-@layer utilities {
-
-  /* animations */
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes arrows {
-    0% {
-      border-left-color: rgba(0, 0, 0, 0);
-      border-bottom-color: rgba(0, 0, 0, 0);
-      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * -4 / 6)) rotate(-45deg);
-    }
-
-    50% {
-      border-left-color: var(--arrow-color);
-      border-bottom-color: var(--arrow-color);
-      transform: translate(calc(var(--arrow-size) / -6), 0px) rotate(-45deg);
-    }
-
-    100% {
-      border-left-color: rgba(0, 0, 0, 0);
-      border-bottom-color: rgba(0, 0, 0, 0);
-      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * 4 / 6)) rotate(-45deg);
-    }
-  }
-
-  .blurred-content {
-    filter: blur(4px);
-    pointer-events: none;
-  }
-
-  .text-gradient {
-    background: var(--color-text-gradient);
-    background-clip: text;
-    color: transparent;
   }
 }
 
@@ -389,5 +340,52 @@
     &:hover {
       color: var(--color-text);
     }
+  }
+}
+
+@layer utilities {
+
+  /* animations */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes arrows {
+    0% {
+      border-left-color: rgba(0, 0, 0, 0);
+      border-bottom-color: rgba(0, 0, 0, 0);
+      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * -4 / 6)) rotate(-45deg);
+    }
+
+    50% {
+      border-left-color: var(--arrow-color);
+      border-bottom-color: var(--arrow-color);
+      transform: translate(calc(var(--arrow-size) / -6), 0px) rotate(-45deg);
+    }
+
+    100% {
+      border-left-color: rgba(0, 0, 0, 0);
+      border-bottom-color: rgba(0, 0, 0, 0);
+      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * 4 / 6)) rotate(-45deg);
+    }
+  }
+
+  .blurred-content {
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    background: var(--color-text-gradient);
+    background-clip: text;
+    color: transparent;
   }
 }
