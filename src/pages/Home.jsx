@@ -44,6 +44,12 @@ function Home() {
 			([entry]) => {
 				if (entry.isIntersecting) {
 					setScrollDirection("up");
+
+					// scroll all the way to the bottom smoothly to show footer
+					window.scrollTo({
+						top: document.body.scrollHeight,
+						behavior: "smooth",
+					});
 				} else {
 					setScrollDirection("down");
 				}
