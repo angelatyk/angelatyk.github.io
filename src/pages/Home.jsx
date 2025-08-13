@@ -102,7 +102,7 @@ function Home() {
 
 				<div className="nav-menu">
 					{/* Dark Mode Toggle */}
-					<button onClick={toggleDarkMode} aria-label="Toggle dark mode">
+					<button onClick={toggleDarkMode} aria-label="Toggle dark mode" className="cursor-pointer">
 						{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
 					</button>
 
