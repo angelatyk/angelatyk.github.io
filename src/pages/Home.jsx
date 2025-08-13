@@ -11,7 +11,7 @@ function Home() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [showFloatingBar, setShowFloatingBar] = useState(false);
-	const [showScrollIcon, setShowScrollIcon] = useState(true);
+	const [scrollDirection, setScrollDirection] = useState("down");
 
 	const heroRef = useRef(null);
 	const contactRef = useRef(null);
@@ -43,13 +43,9 @@ function Home() {
 		const contactObserver = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
-					window.scrollTo({
-						top: document.body.scrollHeight,
-						behavior: "smooth",
-					});
-					setShowScrollIcon(false);
+					setScrollDirection("up");
 				} else {
-					setShowScrollIcon(true);
+					setScrollDirection("down");
 				}
 			},
 			{ threshold: 0.1 }
@@ -81,6 +77,13 @@ function Home() {
 		window.scrollBy({
 			top: window.innerHeight,
 			left: 0,
+			behavior: "smooth",
+		});
+	};
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
 			behavior: "smooth",
 		});
 	};
@@ -139,8 +142,20 @@ function Home() {
 			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
 
 			{/* Scroll Icon */}
-			{showScrollIcon && (
-				<div className="scroll-icon md:scroll-icon-md" id="scrollIcon" onClick={scrollToNextSection}>
+			{scrollDirection !== "hidden" && (
+				<div
+					className={`scroll-icon md:scroll-icon-md ${scrollDirection === "up" ? "rotate-180" : ""}`}
+					id="scrollIcon"
+					onClick={scrollDirection === "up" ? scrollToTop : scrollToNextSection}
+					role="button"
+					aria-label={scrollDirection === "up" ? "Scroll to top" : "Scroll down"}
+					tabIndex={0}
+					onKeyDown={(e) => {
+						if (e.key === "Enter" || e.key === " ") {
+							scrollDirection === "up" ? scrollToTop() : scrollToNextSection();
+						}
+					}}
+				>
 					<div className="arrows"></div>
 				</div>
 			)}
