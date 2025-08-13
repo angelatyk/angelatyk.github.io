@@ -11,7 +11,7 @@ function Home() {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isDarkMode, setIsDarkMode] = useState(false);
 	const [showFloatingBar, setShowFloatingBar] = useState(false);
-	const [scrollDirection, setScrollDirection] = useState("down");
+	const [isAtBottom, setIsAtBottom] = useState(false);
 
 	const heroRef = useRef(null);
 	const contactRef = useRef(null);
@@ -42,16 +42,14 @@ function Home() {
 		// only show scroll icon when contact CTA section not visible
 		const contactObserver = new IntersectionObserver(
 			([entry]) => {
-				if (entry.isIntersecting) {
-					setScrollDirection("up");
+				setIsAtBottom(entry.isIntersecting);
 
+				if (entry.isIntersecting) {
 					// scroll all the way to the bottom smoothly to show footer
 					window.scrollTo({
 						top: document.body.scrollHeight,
 						behavior: "smooth",
 					});
-				} else {
-					setScrollDirection("down");
 				}
 			},
 			{ threshold: 0.1 }
@@ -148,23 +146,7 @@ function Home() {
 			<FloatingContactBar className={showFloatingBar ? "visible-bar" : "hidden-bar"} />
 
 			{/* Scroll Icon */}
-			{scrollDirection !== "hidden" && (
-				<div
-					className={`scroll-icon md:scroll-icon-md ${scrollDirection === "up" ? "rotate-180" : ""}`}
-					id="scrollIcon"
-					onClick={scrollDirection === "up" ? scrollToTop : scrollToNextSection}
-					role="button"
-					aria-label={scrollDirection === "up" ? "Scroll to top" : "Scroll down"}
-					tabIndex={0}
-					onKeyDown={(e) => {
-						if (e.key === "Enter" || e.key === " ") {
-							scrollDirection === "up" ? scrollToTop() : scrollToNextSection();
-						}
-					}}
-				>
-					<div className="arrows"></div>
-				</div>
-			)}
+			<div onClick={isAtBottom ? scrollToTop : scrollToNextSection} className={`arrows cursor-pointer ${isAtBottom ? "arrows-up" : ""}`} />
 
 			<footer className="footer-container container">
 				<div className="footer-content">

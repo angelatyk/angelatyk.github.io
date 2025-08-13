@@ -150,38 +150,63 @@
   }
 
   /* scroll button */
-  .scroll-icon {
-    @apply fixed bottom-5 left-1/2 -translate-x-1/2 cursor-pointer z-10 w-[15px] h-[15px];
-    --arrow-size: 15px;
-    --arrow-speed: 3s;
-    --arrow-color: var(--color-accent);
+  .arrows {
+    --arrow-size: 16px;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    z-index: 50;
   }
 
-  .scroll-icon-md {
-    @apply bottom-[50px] w-[20px] h-[20px];
-    --arrow-size: 20px;
+  @media (min-width: 768px) {
+    .arrows {
+      --arrow-size: 24px;
+      bottom: 3rem;
+    }
   }
 
-  .scroll-icon .arrows::before,
-  .scroll-icon .arrows::after {
+  .arrows::before,
+  .arrows::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    border-left: calc(var(--arrow-size) / 3) solid var(--arrow-color);
-    border-bottom: calc(var(--arrow-size) / 3) solid var(--arrow-color);
-    opacity: 0.7;
-    animation: arrows var(--arrow-speed) linear infinite;
+    border-left: calc(var(--arrow-size) / 3) solid var(--color-accent);
+    border-bottom: calc(var(--arrow-size) / 3) solid var(--color-accent);
+    transform: rotate(-45deg);
+    animation: arrows 3s linear infinite;
   }
 
-  .scroll-icon .arrows::before {
-    transform: translate(calc(var(--arrow-size) / 3), calc(var(--arrow-size) * 4 / 3)) rotate(-45deg);
+  .arrows::before {
+    transform: translate(calc(var(--arrow-size) / 3),
+        calc(var(--arrow-size) / 1.5)) rotate(-45deg);
   }
 
-  .scroll-icon .arrows::after {
-    transform: translate(calc(var(--arrow-size) * 2 / 3), 0px) rotate(-45deg);
-    animation-delay: calc(var(--arrow-speed) / -2);
+  .arrows::after {
+    transform: translate(calc(var(--arrow-size) * 2 / 3),
+        0) rotate(-45deg);
+    animation-delay: -1.5s;
   }
+
+  .arrows-up::before,
+  .arrows-up::after {
+    animation: arrows-up 3s linear infinite;
+  }
+
+  .arrows-up::before {
+    transform: translate(calc(var(--arrow-size) / 3),
+        calc(var(--arrow-size) / -1.5)) rotate(135deg);
+  }
+
+  .arrows-up::after {
+    transform: translate(calc(var(--arrow-size) * 2 / 3),
+        calc(var(--arrow-size) / -1.5)) rotate(135deg);
+    animation-delay: -1.5s;
+  }
+
 
   /* section */
   .section-container {
@@ -360,21 +385,49 @@
 
   @keyframes arrows {
     0% {
-      border-left-color: rgba(0, 0, 0, 0);
-      border-bottom-color: rgba(0, 0, 0, 0);
-      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * -4 / 6)) rotate(-45deg);
+      border-color: rgba(255, 255, 255, 0);
+      transform: translate(calc(var(--arrow-size) / -6),
+          calc(var(--arrow-size) / -1.5)) rotate(-45deg);
+    }
+
+    10%, 90% {
+      border-color: rgba(255, 255, 255, 0);
     }
 
     50% {
-      border-left-color: var(--arrow-color);
-      border-bottom-color: var(--arrow-color);
-      transform: translate(calc(var(--arrow-size) / -6), 0px) rotate(-45deg);
+      border-color: var(--color-accent);
+      transform: translate(calc(var(--arrow-size) / -6),
+          0) rotate(-45deg);
     }
 
     100% {
-      border-left-color: rgba(0, 0, 0, 0);
-      border-bottom-color: rgba(0, 0, 0, 0);
-      transform: translate(calc(var(--arrow-size) / -6), calc(var(--arrow-size) * 4 / 6)) rotate(-45deg);
+      border-color: rgba(255, 255, 255, 0);
+      transform: translate(calc(var(--arrow-size) / -6),
+          calc(var(--arrow-size) / 1.5)) rotate(-45deg);
+    }
+  }
+
+  @keyframes arrows-up {
+    0% {
+      border-color: rgba(255, 255, 255, 0);
+      transform: translate(calc(var(--arrow-size) / -6),
+          calc(var(--arrow-size) / 1.5)) rotate(135deg);
+    }
+
+    10%, 90% {
+      border-color: rgba(255, 255, 255, 0);
+    }
+
+    50% {
+      border-color: var(--color-accent);
+      transform: translate(calc(var(--arrow-size) / -6),
+          0) rotate(135deg);
+    }
+
+    100% {
+      border-color: rgba(255, 255, 255, 0);
+      transform: translate(calc(var(--arrow-size) / -6),
+          calc(var(--arrow-size) / -1.5)) rotate(135deg);
     }
   }
 
