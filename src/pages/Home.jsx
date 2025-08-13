@@ -111,7 +111,7 @@ function Home() {
 						<NavLink link="" label="Home" />
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
-						<NavLink link="projects" label="Projects" />
+						{/* <NavLink link="projects" label="Projects" /> */}
 						<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download className="btn-primary" />
 					</ul>
 
@@ -128,7 +128,7 @@ function Home() {
 					<NavLink link="" label="Home" onClick={() => setMenuOpen(false)} />
 					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
 					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
-					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
+					{/* <NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} /> */}
 					<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download onClick={() => setMenuOpen(false)} />
 				</ul>
 			)}
