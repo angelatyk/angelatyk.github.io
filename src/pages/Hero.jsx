@@ -25,7 +25,7 @@ function Hero({ heroRef }) {
 					<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
 						<SiLinkedin size={24} />
 					</a>
-					<a href={`${import.meta.env.BASE_URL}/Angela_Kwok_Resume.pdf`} download target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+					<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
 						<SiGoogledocs size={24} />
 					</a>
 				</div>

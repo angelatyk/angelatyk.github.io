@@ -13,7 +13,7 @@ const FloatingContactBar = ({ className = "" }) => {
 			<a href="https://linkedin.com/in/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
 				<SiLinkedin size={20} />
 			</a>
-			<a href={`${import.meta.env.BASE_URL}/Angela_Kwok_Resume.pdf`} download target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+			<a href="/Angela_Kwok_Resume.pdf" download target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
 				<SiGoogledocs size={20} />
 			</a>
 		</div>
