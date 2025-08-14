@@ -14,7 +14,11 @@ function Home() {
 	const [isAtBottom, setIsAtBottom] = useState(false);
 
 	const heroRef = useRef(null);
+	const aboutRef = useRef(null);
+	const skillsRef = useRef(null);
+	const projectsRef = useRef(null);
 	const contactRef = useRef(null);
+	const sectionRefs = [aboutRef, skillsRef, contactRef];
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem("theme");
@@ -78,13 +82,32 @@ function Home() {
 	};
 
 	const scrollToNextSection = () => {
-		window.scrollBy({
-			top: window.innerHeight,
-			left: 0,
-			behavior: "smooth",
-		});
-	};
+		let currentScroll = window.scrollY;
+		let nextSectionRef = null;
 
+		const isDesktop = window.innerWidth > 768;
+
+		// scroll-mt-24 value is 6rem, which is 96px
+		const scrollMarginOffset = isDesktop ? 96 : 0;
+
+		// find the next section to scroll to
+		for (let i = 0; i < sectionRefs.length; i++) {
+			const ref = sectionRefs[i];
+			if (ref.current && ref.current.offsetTop > currentScroll + scrollMarginOffset) {
+				nextSectionRef = ref;
+				break;
+			}
+		}
+
+		// if a next section is found, scroll to it
+		if (nextSectionRef) {
+			window.scrollTo({
+				// Subtract the offset to account for scroll-mt-24
+				top: nextSectionRef.current.offsetTop - scrollMarginOffset,
+				behavior: "smooth",
+			});
+		}
+	};
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -135,8 +158,8 @@ function Home() {
 
 			<main className={`container ${menuOpen ? "blurred-content" : ""}`}>
 				<Hero heroRef={heroRef} />
-				<About />
-				<Skills />
+				<About aboutRef={aboutRef} />
+				<Skills skillsRef={skillsRef} />
 				{/* Projects */}
 				{/* <section id="Projects"></section> */}
 				<ContactCTA contactRef={contactRef} />

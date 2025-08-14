@@ -1,6 +1,6 @@
-function About() {
+function About({ aboutRef }) {
 	return (
-		<section className="section-container" id="about">
+		<section className="section-container" id="about" ref={aboutRef}>
 			<div className="section-content">
 				<h2 className="section-heading">Me.</h2>
 				<p>

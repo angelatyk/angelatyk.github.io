@@ -1,6 +1,6 @@
-function Skills() {
+function Skills({ skillsRef }) {
 	return (
-		<section className="section-container" id="skills">
+		<section className="section-container" id="skills" ref={skillsRef}>
 			<div className="section-content">
 				<h2 className="section-heading">Skills.</h2>
 				<div className="skills-list">
