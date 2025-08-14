@@ -72,6 +72,7 @@
 
   body {
     @apply transition-colors duration-300 ease-in-out;
+    @apply snap-y snap-mandatory;
     margin: 0;
     font-family: 'Inter', 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
     color: var(--color-text);
@@ -211,6 +212,7 @@
   .section-container {
     @apply min-h-screen flex flex-col justify-start px-6 sm:px-10 md:px-20 pt-20 sm:pt-32 md:pt-40;
     @apply md:scroll-mt-24;
+    @apply snap-start;
     opacity: 0;
     animation: fade-in 1.5s forwards;
   }
