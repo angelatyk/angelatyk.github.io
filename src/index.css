@@ -22,7 +22,7 @@
   --color-text-gradient-dark: linear-gradient(to right, var(--color-accent), rgb(119, 190, 248));
   --color-accent-dark: rgb(181, 157, 255);
   --color-background-card-dark: rgba(255, 255, 255, 0.2);
-  --color-background-mobile-menu-dark: rgb(255, 255, 255);
+  --color-background-mobile-menu-dark: rgba(20, 20, 20, 0.7);
   --background-accent-pink-dark: rgba(120, 60, 90, 0.4);
   --background-accent-blue-dark: rgba(70, 110, 130, 0.4);
   --background-accent-yellow-dark: rgba(130, 110, 60, 0.35);
@@ -116,7 +116,7 @@
   .nav-menu-mobile {
     @apply flex flex-col px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40 shadow-lg;
     @apply md:hidden;
-    background-color: rgba(20, 20, 20, 0.7);
+    background-color: var(--color-background-mobile-menu);
   }
 
   .mobile-toggle {
@@ -438,7 +438,6 @@
 
   .blurred-content {
     filter: blur(4px);
-    pointer-events: none;
   }
 
   .text-gradient {
