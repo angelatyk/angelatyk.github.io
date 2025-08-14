@@ -116,7 +116,7 @@
   .nav-menu-mobile {
     @apply flex flex-col px-4 py-2 gap-2 fixed top-16 left-0 w-full z-40 shadow-lg;
     @apply md:hidden;
-    background-color: var(--color-background-card)
+    background-color: rgba(20, 20, 20, 0.7);
   }
 
   .mobile-toggle {
