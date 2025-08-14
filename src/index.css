@@ -159,7 +159,7 @@
     transform: translateX(-50%);
     width: var(--arrow-size);
     height: var(--arrow-size);
-    z-index: 50;
+    z-index: 999;
   }
 
   @media (min-width: 768px) {
