@@ -300,7 +300,6 @@
     color: var(--color-text);
   }
 
-
   .project-card:hover {
     @apply shadow-xl;
   }
