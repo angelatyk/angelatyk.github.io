@@ -19,7 +19,7 @@ function Home() {
 	const skillsRef = useRef(null);
 	const projectsRef = useRef(null);
 	const contactRef = useRef(null);
-	const sectionRefs = [aboutRef, skillsRef, contactRef];
+	const sectionRefs = [aboutRef, skillsRef, projectsRef, contactRef];
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem("theme");
