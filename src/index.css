@@ -284,12 +284,20 @@
   }
 
   /* projects */
-  .projects-grid {
-    @apply grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 w-full mt-8;
+  .projects-mobile {
+    @apply md:hidden space-y-12;
   }
 
-  .projects-grid>.project-card:nth-child(even) {
-    @apply md:translate-y-32;
+  .projects-desktop {
+    @apply hidden md:flex md:items-start md:gap-16 mt-8;
+  }
+
+  .projects-col {
+    @apply flex-1 flex flex-col gap-16;
+  }
+
+  .projects-col-staggered {
+    @apply md:mt-10;
   }
 
   .project-card {

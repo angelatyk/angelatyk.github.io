@@ -43,15 +43,34 @@ function Projects({ projectsRef }) {
 		},
 	];
 
+	const leftColumn = projects.filter((_, i) => i % 2 === 0);
+	const rightColumn = projects.filter((_, i) => i % 2 === 1);
+
 	return (
 		<section className="section-container" id="projects" ref={projectsRef}>
 			<div className="section-content">
 				<h2 className="section-heading">Projects.</h2>
 			</div>
-			<div className="projects-grid">
-				{projects.map((project, index) => (
-					<ProjectCard key={index} {...project} />
+
+			{/* mobile: one column */}
+			<div className="projects-mobile">
+				{projects.map((p, i) => (
+					<ProjectCard key={i} {...p} />
 				))}
+			</div>
+
+			{/* desktop: two staggered columns */}
+			<div className="projects-desktop">
+				<div className="projects-col">
+					{leftColumn.map((p, i) => (
+						<ProjectCard key={i} {...p} />
+					))}
+				</div>
+				<div className="projects-col projects-col-staggered">
+					{rightColumn.map((p, i) => (
+						<ProjectCard key={i} {...p} />
+					))}
+				</div>
 			</div>
 		</section>
 	);
