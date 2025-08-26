@@ -5,6 +5,7 @@ import NavLink from "../components/NavLink";
 import About from "../pages/About";
 import ContactCTA from "../pages/ContactCTA";
 import Hero from "../pages/Hero";
+import Projects from "../pages/Projects";
 import Skills from "../pages/Skills";
 
 function Home() {
@@ -18,7 +19,7 @@ function Home() {
 	const skillsRef = useRef(null);
 	const projectsRef = useRef(null);
 	const contactRef = useRef(null);
-	const sectionRefs = [aboutRef, skillsRef, contactRef];
+	const sectionRefs = [aboutRef, skillsRef, projectsRef, contactRef];
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem("theme");
@@ -135,7 +136,7 @@ function Home() {
 						<NavLink link="" label="Home" />
 						<NavLink link="about" label="About" />
 						<NavLink link="skills" label="Skills" />
-						{/* <NavLink link="projects" label="Projects" /> */}
+						<NavLink link="projects" label="Projects" />
 						<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download className="btn-primary" />
 					</ul>
 
@@ -152,7 +153,7 @@ function Home() {
 					<NavLink link="" label="Home" onClick={() => setMenuOpen(false)} />
 					<NavLink link="about" label="About" onClick={() => setMenuOpen(false)} />
 					<NavLink link="skills" label="Skills" onClick={() => setMenuOpen(false)} />
-					{/* <NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} /> */}
+					<NavLink link="projects" label="Projects" onClick={() => setMenuOpen(false)} />
 					<NavLink link="/Angela_Kwok_Resume.pdf" label="Resume" isExternal download onClick={() => setMenuOpen(false)} />
 				</ul>
 			)}
@@ -161,8 +162,7 @@ function Home() {
 				<Hero heroRef={heroRef} />
 				<About aboutRef={aboutRef} />
 				<Skills skillsRef={skillsRef} />
-				{/* Projects */}
-				{/* <section id="Projects"></section> */}
+				<Projects projectsRef={projectsRef} />
 				<ContactCTA contactRef={contactRef} />
 			</main>
 
