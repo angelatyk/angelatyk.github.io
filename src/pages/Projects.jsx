@@ -3,9 +3,18 @@ import ProjectCard from "../components/ProjectCard";
 import growImg from "../assets/images/grow.png";
 import portfolioImg from "../assets/images/portfolio.png";
 import reconnectorImg from "../assets/images/reconnector.png";
+import regressionModelsImg from "../assets/images/regression_models.png";
 
 function Projects({ projectsRef }) {
 	const projects = [
+		{
+			title: "BikeEase Analytics Series",
+			imageSrc: regressionModelsImg,
+			description:
+				"The BikeEase Analytics Series showcases my AI/ML bootcamp journey through a multi-part project applied to BikeEase, a New York bike rental company. The notebooks cover data cleaning, visualization, regression modeling, CNN image classification, NLP sentiment analysis, and generative AI, highlighting my ability to apply end-to-end AI/ML workflows to real-world problems.",
+			github: "https://github.com/angelatyk/bikeease-analytics-series",
+			tag: "Machline Learning",
+		},
 		{
 			title: "My Portfolio",
 			imageSrc: portfolioImg,
