@@ -102,12 +102,13 @@ function Home() {
 		// if a next section is found, scroll to it
 		if (nextSectionRef) {
 			window.scrollTo({
-				// Subtract the offset to account for scroll-mt-24
+				// subtract the offset to account for scroll-mt-24
 				top: nextSectionRef.current.offsetTop - scrollMarginOffset,
 				behavior: "smooth",
 			});
 		}
 	};
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,

@@ -164,7 +164,7 @@
 
   @media (min-width: 768px) {
     .arrows {
-      --arrow-size: 24px;
+      --arrow-size: 21px;
       bottom: 3rem;
     }
   }
