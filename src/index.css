@@ -317,7 +317,6 @@
 
   .project-card-tag {
     @apply text-xs font-semibold px-3 py-1 rounded-full;
-    background-color: var(--background-accent-blue);
     color: var(--color-text);
   }
 

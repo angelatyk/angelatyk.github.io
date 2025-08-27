@@ -2,10 +2,20 @@ import { SiGithub } from "react-icons/si";
 import LinkButton from "./LinkButton";
 
 function ProjectCard({ title, imageSrc, description, link, github, tag }) {
+	const tagColors = {
+		"Web Development": "var(--background-accent-blue)",
+		"Machine Learning": "var(--background-accent-yellow)",
+		Default: "var(--background-accent-red)",
+	};
+
 	return (
 		<div className="project-card">
 			<div className="project-card-header">
-				{tag && <span className="project-card-tag">{tag}</span>}
+				{tag && (
+					<span className="project-card-tag" style={{ backgroundColor: tagColors[tag] || tagColors.Default }}>
+						{tag}
+					</span>
+				)}
 				{github && (
 					<a href={github} target="_blank" rel="noopener noreferrer" className="project-card-github">
 						<SiGithub size={20} />

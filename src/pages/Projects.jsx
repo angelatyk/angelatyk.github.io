@@ -13,7 +13,7 @@ function Projects({ projectsRef }) {
 			description:
 				"The BikeEase Analytics Series showcases my AI/ML bootcamp journey through a multi-part project applied to BikeEase, a New York bike rental company. The notebooks cover data cleaning, visualization, regression modeling, CNN image classification, NLP sentiment analysis, and generative AI, highlighting my ability to apply end-to-end AI/ML workflows to real-world problems.",
 			github: "https://github.com/angelatyk/bikeease-analytics-series",
-			tag: "Machline Learning",
+			tag: "Machine Learning",
 		},
 		{
 			title: "My Portfolio",
