@@ -38,7 +38,7 @@ function Projects({ projectsRef }) {
 			title: "Sales Analysis",
 			imageSrc: salesAnalysisImg,
 			description:
-				"This Sales Analysis examines AAL’s Q4 2020 apparel sales across Australia to uncover trends by state, demographic group, and time of day. The project includes data cleaning, normalization, descriptive statistics, hypothesis testing, and visualizations that reveal peak periods, top-performing regions, and under-leveraged segments. Built with Python, Pandas, NumPy, Matplotlib, Seaborn, and SciPy, it demonstrates proficiency in analyzing and presenting complex business data.",
+				"This project analyzes AAL’s Q4 2020 apparel sales across Australia to uncover trends by state, demographic group, and time of day. It involves data cleaning, normalization, descriptive statistics, hypothesis testing, and visualizations that highlight peak periods, top-performing regions, and under-leveraged segments. Built with Python, Pandas, NumPy, Matplotlib, Seaborn, and SciPy, the analysis demonstrates proficiency in handling and presenting complex business data.",
 			github: "https://github.com/angelatyk/sales-analysis",
 			tags: ["Machine Learning", "Data Visualization"],
 		},
