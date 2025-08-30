@@ -5,6 +5,7 @@ import growImg from "../assets/images/grow.png";
 import portfolioImg from "../assets/images/portfolio.png";
 import reconnectorImg from "../assets/images/reconnector.png";
 import regressionModelsImg from "../assets/images/regression_models.png";
+import salesAnalysisImg from "../assets/images/sales_analysis.png";
 
 function Projects({ projectsRef }) {
 	const projects = [
@@ -17,6 +18,15 @@ function Projects({ projectsRef }) {
 			tags: ["Machine Learning", "Data Visualization"],
 		},
 		{
+			title: "My Portfolio",
+			imageSrc: portfolioImg,
+			description:
+				"My Portfolio is a responsive, mobile-first website built to showcase projects and technical skills in a clean, modern interface. The site features light and dark mode support, smooth animations, and modular React components for scalability. Developed with React and Tailwind CSS, this project reflects my ability to quickly learn and apply new technologies, as Tailwind was a first-time experience, while maintaining a focus on intuitive design and maintainable code.",
+			link: "https://angelatyk.github.io/",
+			github: "https://github.com/angelatyk/angelatyk.github.io",
+			tags: ["Web Development"],
+		},
+		{
 			title: "Employee Turnover Prediction",
 			imageSrc: employeeTurnoverImg,
 			description:
@@ -25,13 +35,12 @@ function Projects({ projectsRef }) {
 			tags: ["Machine Learning", "Data Visualization"],
 		},
 		{
-			title: "My Portfolio",
-			imageSrc: portfolioImg,
+			title: "Sales Analysis",
+			imageSrc: salesAnalysisImg,
 			description:
-				"My Portfolio is a responsive, mobile-first website built to showcase projects and technical skills in a clean, modern interface. The site features light and dark mode support, smooth animations, and modular React components for scalability. Developed with React and Tailwind CSS, this project reflects my ability to quickly learn and apply new technologies, as Tailwind was a first-time experience, while maintaining a focus on intuitive design and maintainable code.",
-			link: "https://angelatyk.github.io/",
-			github: "https://github.com/angelatyk/angelatyk.github.io",
-			tags: ["Web Development"],
+				"This Sales Analysis examines AAL’s Q4 2020 apparel sales across Australia to uncover trends by state, demographic group, and time of day. The project includes data cleaning, normalization, descriptive statistics, hypothesis testing, and visualizations that reveal peak periods, top-performing regions, and under-leveraged segments. Built with Python, Pandas, NumPy, Matplotlib, Seaborn, and SciPy, it demonstrates proficiency in analyzing and presenting complex business data.",
+			github: "https://github.com/angelatyk/sales-analysis",
+			tags: ["Machine Learning", "Data Visualization"],
 		},
 		{
 			title: "Reconnect",
