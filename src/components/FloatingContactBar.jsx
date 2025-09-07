@@ -1,12 +1,15 @@
 import { Mail } from "lucide-react";
 import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
+import EmailHover from "./EmailHover";
 
 const FloatingContactBar = ({ className = "" }) => {
 	return (
 		<div className={`floating-contact-bar ${className}`}>
-			<a href="mailto:angelatyk@gmail.com" aria-label="Email" title="Email">
-				<Mail size={20} />
-			</a>
+			<EmailHover>
+				<a href="mailto:angelatyk@gmail.com" aria-label="Email" title="Email">
+					<Mail size={20} />
+				</a>
+			</EmailHover>
 			<a href="https://github.com/angelatyk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
 				<SiGithub size={20} />
 			</a>
