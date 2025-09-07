@@ -1,5 +1,6 @@
 import EmailHover from "../components/EmailHover";
 import LinkButton from "../components/LinkButton";
+import { EMAIL } from "../config/email";
 
 function ContactCTA({ contactRef }) {
 	return (
@@ -10,7 +11,7 @@ function ContactCTA({ contactRef }) {
 				</h2>
 				<p className="contact-subtext">If you’ve got a project in mind or just want to connect, I’d love to hear from you.</p>
 				<EmailHover>
-					<LinkButton href="mailto:angelatyk@gmail.com" label="Say Hello →" />
+					<LinkButton href={`mailto:${EMAIL}`} label="Say Hello →" />
 				</EmailHover>
 			</div>
 		</section>

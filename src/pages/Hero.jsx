@@ -2,6 +2,7 @@ import { Mail } from "lucide-react";
 import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
 import { Typewriter } from "react-simple-typewriter";
 import EmailHover from "../components/EmailHover";
+import { EMAIL } from "../config/email";
 
 function Hero({ heroRef }) {
 	return (
@@ -18,7 +19,7 @@ function Hero({ heroRef }) {
 				<p className="hero-subtext">Blending AI and web technologies to create user-focused solutions that transform complexity into intuitive, elegant experiences.</p>
 				<div className="hero-contact">
 					<EmailHover>
-						<a href="mailto:angelatyk@gmail.com" aria-label="Email" title="Email">
+						<a href={`mailto:${EMAIL}`} aria-label="Email" title="Email">
 							<Mail />
 						</a>
 					</EmailHover>
