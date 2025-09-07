@@ -1,7 +1,9 @@
 import { Heart, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import EmailHover from "../components/EmailHover";
 import FloatingContactBar from "../components/FloatingContactBar";
 import NavLink from "../components/NavLink";
+import { EMAIL } from "../config/email";
 import About from "../pages/About";
 import ContactCTA from "../pages/ContactCTA";
 import Hero from "../pages/Hero";
@@ -176,9 +178,11 @@ function Home() {
 				<div className="footer-content">
 					<span>
 						Made with <Heart className="inline text-red-500 w-4 h-4" /> by&nbsp;
-						<a href="mailto:angelatyk@gmail.com" className="footer-email">
-							Angela Kwok
-						</a>
+						<EmailHover>
+							<a href={`mailto:${EMAIL}`} className="footer-email">
+								Angela Kwok
+							</a>
+						</EmailHover>
 					</span>
 				</div>
 			</footer>

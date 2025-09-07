@@ -1,4 +1,6 @@
+import EmailHover from "../components/EmailHover";
 import LinkButton from "../components/LinkButton";
+import { EMAIL } from "../config/email";
 
 function ContactCTA({ contactRef }) {
 	return (
@@ -8,7 +10,9 @@ function ContactCTA({ contactRef }) {
 					Let’s build something great <span className="text-gradient">together.</span>
 				</h2>
 				<p className="contact-subtext">If you’ve got a project in mind or just want to connect, I’d love to hear from you.</p>
-				<LinkButton href="mailto:angelatyk@gmail.com" label="Say Hello →" />
+				<EmailHover>
+					<LinkButton href={`mailto:${EMAIL}`} label="Say Hello →" />
+				</EmailHover>
 			</div>
 		</section>
 	);

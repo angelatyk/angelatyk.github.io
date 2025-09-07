@@ -168,6 +168,24 @@
     @apply scale-x-100;
   }
 
+  /* email hover */
+  .email-hover-container {
+    @apply relative inline-block cursor-pointer;
+  }
+
+  .email-hover-text {
+    @apply absolute top-1/2 left-full -translate-y-1/2 ml-2 px-3 py-1 rounded-md text-white text-sm opacity-0 transition-opacity duration-300;
+    font-size: 1.1rem;
+    background-color: var(--color-accent-light);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .email-hover-container:hover .email-hover-text {
+    @apply opacity-100;
+  }
+
   /* scroll button */
   .arrows {
     --arrow-size: 16px;
