@@ -6,7 +6,7 @@ function Skills({ skillsRef }) {
 				<div className="skills-list">
 					<div className="skill-category">
 						<h3 className="skill-heading">Proficient</h3>
-						<p>Java, JavaScript, Python, React, Node.js, Express.js, Spring, Hibernate, MySQL, Oracle, RESTful APIs, Git</p>
+						<p>Java, Javascript/Typescript, Python, React, Node.js, Express.js, Spring, Hibernate, MySQL, Oracle, RESTful APIs, Git</p>
 					</div>
 					<div className="skill-category">
 						<h3 className="skill-heading">Knowledgeable</h3>
