@@ -111,7 +111,7 @@
 
   /* navigation */
   .nav-container {
-    @apply flex justify-between items-center py-4 fixed top-0 left-0 w-full z-50 backdrop-blur;
+    @apply fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl flex justify-between items-center py-4 z-50 backdrop-blur px-4;
   }
 
   .nav-menu {
