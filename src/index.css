@@ -265,6 +265,12 @@
   }
 
   /* hero */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 14rem;
+    }
+  }
+
   .hero-content {
     @apply max-w-2xl w-full space-y-4;
   }
