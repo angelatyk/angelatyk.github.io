@@ -4,10 +4,11 @@ import LinkButton from "./LinkButton";
 function ProjectCard({ title, imageSrc, description, link, github, tags = [] }) {
 	const tagColors = {
 		"Web Development": "var(--background-accent-blue)",
-		"Machine Learning": "var(--background-accent-yellow)",
+		"AI/Machine Learning": "var(--background-accent-yellow)",
+		"Data Science": "var(--background-accent-green)",
 		Default: "var(--background-accent-pink)",
 	};
-	console.log(title, tags);
+
 	return (
 		<div className="project-card">
 			<div className="project-card-header">

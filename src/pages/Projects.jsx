@@ -6,16 +6,25 @@ import portfolioImg from "../assets/images/portfolio.png";
 import reconnectorImg from "../assets/images/reconnector.png";
 import regressionModelsImg from "../assets/images/regression_models.png";
 import salesAnalysisImg from "../assets/images/sales_analysis.png";
+import smartChefImg from "../assets/images/smartChef.png";
 
 function Projects({ projectsRef }) {
 	const projects = [
+		{
+			title: "SmartChef",
+			imageSrc: smartChefImg,
+			description:
+				"SmartChef is an intelligent cooking assistant that helps users decide what to cook based on the ingredients they have at home. The project demonstrates an end-to-end AI/ML workflow, from data cleaning and vector embedding of 13K+ recipes to building a Retrieval-Augmented Generation (RAG) pipeline that combines semantic search with generative AI. A FastAPI backend powers ingredient queries and similarity search, while a responsive Vite + React frontend provides an interactive chatbot experience. SmartChef highlights my ability to integrate data science, AI, and full-stack development to build practical, user-focused applications.",
+			link: "https://smartchef-kappa.vercel.app/",
+			tags: ["AI/Machine Learning", "Web Development", "Data Science"],
+		},
 		{
 			title: "BikeEase Analytics Series",
 			imageSrc: regressionModelsImg,
 			description:
 				"The BikeEase Analytics Series showcases my AI/ML bootcamp journey through a multi-part project applied to BikeEase, a New York bike rental company. The notebooks cover data cleaning, visualization, regression modeling, CNN image classification, NLP sentiment analysis, and generative AI, highlighting my ability to apply end-to-end AI/ML workflows to real-world problems.",
 			github: "https://github.com/angelatyk/bikeease-analytics-series",
-			tags: ["Machine Learning", "Data Visualization"],
+			tags: ["AI/Machine Learning", "Data Visualization"],
 		},
 		{
 			title: "My Portfolio",
@@ -32,7 +41,7 @@ function Projects({ projectsRef }) {
 			description:
 				"Employee Turnover Prediction helps companies identify employees at risk of leaving and implement targeted retention strategies. The project uncovers key turnover factors through HR data analysis, clusters employees based on satisfaction and evaluation, and predicts risk levels using advanced classification models. Built with Python, Pandas, Scikit-learn, and Matplotlib, it highlights expertise in data preprocessing, feature engineering, and model evaluation.",
 			github: "https://github.com/angelatyk/employee-turnover",
-			tags: ["Machine Learning", "Data Visualization"],
+			tags: ["AI/Machine Learning", "Data Visualization"],
 		},
 		{
 			title: "Sales Analysis",
@@ -40,7 +49,7 @@ function Projects({ projectsRef }) {
 			description:
 				"This project analyzes AAL’s Q4 2020 apparel sales across Australia to uncover trends by state, demographic group, and time of day. It involves data cleaning, normalization, descriptive statistics, hypothesis testing, and visualizations that highlight peak periods, top-performing regions, and under-leveraged segments. Built with Python, Pandas, NumPy, Matplotlib, Seaborn, and SciPy, the analysis demonstrates proficiency in handling and presenting complex business data.",
 			github: "https://github.com/angelatyk/sales-analysis",
-			tags: ["Machine Learning", "Data Visualization"],
+			tags: ["AI/Machine Learning", "Data Visualization"],
 		},
 		{
 			title: "Reconnect",

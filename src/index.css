@@ -13,6 +13,7 @@
   --background-accent-pink-light: rgba(255, 209, 220, 0.9);
   --background-accent-blue-light: rgba(196, 240, 255, 0.9);
   --background-accent-yellow-light: rgba(255, 247, 206, 0.85);
+  --background-accent-green-light: rgba(210, 255, 222, 0.9);
   --background-main1-light: rgb(250, 249, 246);
   --background-main2-light: rgb(240, 244, 255);
 
@@ -26,6 +27,7 @@
   --background-accent-pink-dark: rgba(120, 60, 90, 0.4);
   --background-accent-blue-dark: rgba(70, 110, 130, 0.4);
   --background-accent-yellow-dark: rgba(130, 110, 60, 0.35);
+  --background-accent-green-dark: rgba(60, 100, 70, 0.4);
   --background-main1-dark: rgb(11, 14, 20);
   --background-main2-dark: rgb(26, 31, 43);
 }
@@ -44,6 +46,7 @@
     --background-accent-pink: var(--background-accent-pink-light);
     --background-accent-blue: var(--background-accent-blue-light);
     --background-accent-yellow: var(--background-accent-yellow-light);
+    --background-accent-green: var(--background-accent-green-light);
     --background-main1: var(--background-main1-light);
     --background-main2: var(--background-main2-light);
   }
@@ -62,6 +65,7 @@
     --background-accent-pink: var(--background-accent-pink-dark);
     --background-accent-blue: var(--background-accent-blue-dark);
     --background-accent-yellow: var(--background-accent-yellow-dark);
+    --background-accent-green: var(--background-accent-green-dark);
     --background-main1: var(--background-main1-dark);
     --background-main2: var(--background-main2-dark);
   }
@@ -107,7 +111,7 @@
 
   /* navigation */
   .nav-container {
-    @apply flex justify-between items-center py-4 sticky top-0 z-50 backdrop-blur;
+    @apply flex justify-between items-center py-4 fixed top-0 left-0 w-full z-50 backdrop-blur;
   }
 
   .nav-menu {
