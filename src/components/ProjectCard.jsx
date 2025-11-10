@@ -1,7 +1,7 @@
 import { SiGithub } from "react-icons/si";
 import LinkButton from "./LinkButton";
 
-function ProjectCard({ title, imageSrc, description, link, github, tags = [] }) {
+function ProjectCard({ title, imageSrc, description, link, presentation, github, tags = [] }) {
 	const tagColors = {
 		"Web Development": "var(--background-accent-blue)",
 		"AI/Machine Learning": "var(--background-accent-yellow)",
@@ -31,6 +31,7 @@ function ProjectCard({ title, imageSrc, description, link, github, tags = [] }) 
 				<h3 className="project-card-title">{title}</h3>
 				<p className="project-card-description">{description}</p>
 				{link && <LinkButton href={link} label="View Project →" className="text-sm" />}
+				{presentation && <LinkButton href={presentation} label="View Presentation →" className="text-sm" />}
 			</div>
 			{imageSrc && (
 				<div className="project-card-image">

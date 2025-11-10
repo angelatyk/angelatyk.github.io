@@ -17,6 +17,7 @@ function Projects({ projectsRef }) {
 				"SmartChef is an intelligent cooking assistant that helps users decide what to cook based on the ingredients they have at home. The project demonstrates an end-to-end AI/ML workflow, from data cleaning and vector embedding of 13K+ recipes to building a Retrieval-Augmented Generation (RAG) pipeline that combines semantic search with generative AI. A FastAPI backend powers ingredient queries and similarity search, while a responsive Vite + React frontend provides an interactive chatbot experience. SmartChef highlights my ability to integrate data science, AI, and full-stack development to build practical, user-focused applications.",
 			link: "https://smartchef-kappa.vercel.app/",
 			tags: ["AI/Machine Learning", "Web Development", "Data Science"],
+			presentation: "https://www.canva.com/design/DAG16-thwPc/ds5TB1MsbjZPwxp5UeeF2A/watch?utm_content=DAG16-thwPc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h17f4e661a4",
 		},
 		{
 			title: "BikeEase Analytics Series",
