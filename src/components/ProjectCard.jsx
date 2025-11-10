@@ -30,8 +30,8 @@ function ProjectCard({ title, imageSrc, description, link, presentation, github,
 			<div className="project-card-content">
 				<h3 className="project-card-title">{title}</h3>
 				<p className="project-card-description">{description}</p>
-				{link && <LinkButton href={link} label="View Project →" className="text-sm" />}
-				{presentation && <LinkButton href={presentation} label="View Presentation →" className="text-sm" />}
+				{link && <LinkButton href={link} label="View Project →" className="text-sm" openNewTab />}
+				{presentation && <LinkButton href={presentation} label="View Presentation →" className="text-sm" openNewTab />}
 			</div>
 			{imageSrc && (
 				<div className="project-card-image">
