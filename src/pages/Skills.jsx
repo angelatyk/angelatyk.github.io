@@ -11,8 +11,9 @@ function Skills({ skillsRef }) {
 					<div className="skill-category">
 						<h3 className="skill-heading">Knowledgeable</h3>
 						<p>
-							Pandas, NumPy, Scikit-learn, TensorFlow, Keras, PyTorch, Hugging Face, Deep Learning, Natural Language Processing (NLP), Large Language Models (LLMs), Generative AI, Prompt Engineering,
-							Computer Vision, Reinforcement Learning, Model Deployment
+							Generative AI (LLMs, Fine-tuning), Agentic AI, Retrieval-Augmented Generation (RAG), Prompt Engineering, Large Language Models (LLMs), Natural Language Processing (NLP),
+							Semantic Search, Deep Learning, Computer Vision, Reinforcement Learning, Supervised & Unsupervised Learning, Time Series Analysis, Model Deployment, Vector Embeddings, Data
+							Preprocessing, Feature Engineering, PyTorch, Hugging Face Transformers, TensorFlow, OpenAI API, LangChain, Scikit-learn, Pandas, NumPy, Keras, Pinecone
 						</p>
 					</div>
 					<div className="skill-category">
