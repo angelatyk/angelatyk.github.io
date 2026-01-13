@@ -3,7 +3,7 @@ import LinkButton from "./LinkButton";
 
 function ProjectCard({ title, imageSrc, description, link, presentation, github, tags = [] }) {
 	const tagColors = {
-		"Web Development": "var(--background-accent-blue)",
+		"Full-Stack": "var(--background-accent-blue)",
 		"AI/Machine Learning": "var(--background-accent-yellow)",
 		"Data Science": "var(--background-accent-green)",
 		Default: "var(--background-accent-pink)",

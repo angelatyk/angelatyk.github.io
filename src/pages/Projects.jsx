@@ -7,17 +7,28 @@ import reconnectorImg from "../assets/images/reconnector.png";
 import regressionModelsImg from "../assets/images/regression_models.png";
 import salesAnalysisImg from "../assets/images/sales_analysis.png";
 import smartChefImg from "../assets/images/smartChef.png";
+import tinytutorImg from "../assets/images/tinytutor.png";
 
 function Projects({ projectsRef }) {
 	const projects = [
+		{
+			title: "TinyTutor",
+			imageSrc: tinytutorImg,
+			description:
+				"TinyTutor is an agentic AI educational media generator that transforms complex topics into clear, emotionally safe, age-appropriate content for young children. It demonstrates a multi-agent pipeline deployed on Vertex AI Agent Engine, where a Pedagogy Agent researches topics, a Scriptwriter Agent creates child-friendly explanations, and a TTS Agent generates natural audio narration. These same agents were later reused to create a Discord bot for interactive learning and experimentation, while a version 2 is currently in progress as a full end-to-end product. TinyTutor highlights my ability to integrate AI, multi-agent system design, and full-stack thinking to produce practical, user-focused educational tools.",
+			link: "https://huggingface.co/spaces/cwattsnogueira/tinytutor",
+			presentation: "https://www.youtube.com/watch?v=bAAcL3O1oQs",
+			tags: ["AI/Machine Learning", "Full-Stack"],
+		},
 		{
 			title: "SmartChef",
 			imageSrc: smartChefImg,
 			description:
 				"SmartChef is an intelligent cooking assistant that helps users decide what to cook based on the ingredients they have at home. The project demonstrates an end-to-end AI/ML workflow, from data cleaning and vector embedding of 13K+ recipes to building a Retrieval-Augmented Generation (RAG) pipeline that combines semantic search with generative AI. A FastAPI backend powers ingredient queries and similarity search, while a responsive Vite + React frontend provides an interactive chatbot experience. SmartChef highlights my ability to integrate data science, AI, and full-stack development to build practical, user-focused applications.",
 			link: "https://smartchef-kappa.vercel.app/",
-			tags: ["AI/Machine Learning", "Web Development", "Data Science"],
-			presentation: "https://www.canva.com/design/DAG16-thwPc/ds5TB1MsbjZPwxp5UeeF2A/watch?utm_content=DAG16-thwPc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h17f4e661a4",
+			tags: ["AI/Machine Learning", "Full-Stack", "Data Science"],
+			presentation:
+				"https://www.canva.com/design/DAG16-thwPc/ds5TB1MsbjZPwxp5UeeF2A/watch?utm_content=DAG16-thwPc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h17f4e661a4",
 		},
 		{
 			title: "BikeEase Analytics Series",
@@ -34,7 +45,7 @@ function Projects({ projectsRef }) {
 				"My Portfolio is a responsive, mobile-first website built to showcase projects and technical skills in a clean, modern interface. The site features light and dark mode support, smooth animations, and modular React components for scalability. Developed with React and Tailwind CSS, this project reflects my ability to quickly learn and apply new technologies, as Tailwind was a first-time experience, while maintaining a focus on intuitive design and maintainable code.",
 			link: "https://angelatyk.github.io/",
 			github: "https://github.com/angelatyk/angelatyk.github.io",
-			tags: ["Web Development"],
+			tags: ["Full-Stack"],
 		},
 		{
 			title: "Employee Turnover Prediction",
@@ -59,7 +70,7 @@ function Projects({ projectsRef }) {
 				"Reconnect is a full-stack application built in two weeks during a hackathon to foster stronger workplace connections in remote environments. The app lets employees share events, find common interests, and participate in company-wide gamification through a points-based competition system. It features a responsive interface built with React and Sass, secure authentication and data storage via Supabase and PostgreSQL, and seamless deployment on Vercel. This project highlights adaptability, teamwork in an Agile environment, and rapid learning of new tools under tight deadlines.",
 			link: "https://reconnector.vercel.app/",
 			github: "https://github.com/angelatyk/angela-kwok-grow",
-			tags: ["Web Development"],
+			tags: ["Full-Stack"],
 		},
 		{
 			title: "Grow",
@@ -67,7 +78,7 @@ function Projects({ projectsRef }) {
 			description:
 				"Grow is a full-stack gardening application built to help users plan and manage seasonal gardens efficiently. The app allows users to choose plants from a curated collection and automatically generates a personalized to-do list with tasks like seeding, watering, and harvesting. It includes secure authentication, a community-driven tips section, and an intuitive interface for tracking plant growth. Developed as a capstone project, Grow demonstrates my ability to learn new technologies such as Next.js, Prisma, and TypeScript while building on foundational knowledge of React and Node.js.",
 			github: "https://github.com/angelatyk/angela-kwok-grow",
-			tags: ["Web Development"],
+			tags: ["Full-Stack"],
 		},
 	];
 
