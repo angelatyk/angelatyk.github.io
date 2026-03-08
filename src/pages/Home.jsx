@@ -46,13 +46,22 @@ function Home() {
 			heroObserver.observe(heroRef.current);
 		}
 
-		// only show scroll icon when contact CTA section not visible
+		// track bottom state via scroll position (accurate, no jank)
+		const handleScroll = () => {
+			const distanceFromBottom =
+				document.documentElement.scrollHeight -
+				window.scrollY -
+				window.innerHeight;
+			setIsAtBottom(distanceFromBottom <= 5);
+		};
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		handleScroll();
+
+		// when the ContactCTA section comes into view, smoothly reveal the footer
 		const contactObserver = new IntersectionObserver(
 			([entry]) => {
-				setIsAtBottom(entry.isIntersecting);
-
 				if (entry.isIntersecting) {
-					// scroll all the way to the bottom smoothly to show footer
 					window.scrollTo({
 						top: document.body.scrollHeight,
 						behavior: "smooth",
@@ -66,7 +75,7 @@ function Home() {
 			contactObserver.observe(contactRef.current);
 		}
 
-		// cleanup observers when the component unmounts
+		// cleanup on unmount
 		return () => {
 			if (heroRef.current) {
 				heroObserver.unobserve(heroRef.current);
@@ -74,6 +83,7 @@ function Home() {
 			if (contactRef.current) {
 				contactObserver.unobserve(contactRef.current);
 			}
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
@@ -85,15 +95,25 @@ function Home() {
 	};
 
 	const scrollToNextSection = () => {
-		let currentScroll = window.scrollY;
-		let nextSectionRef = null;
-
+		const currentScroll = window.scrollY;
 		const isDesktop = window.innerWidth > 768;
-
-		// scroll-mt-24 value is 6rem, which is 96px
+		// scroll-mt-24 = 6rem = 96px
 		const scrollMarginOffset = isDesktop ? 96 : 0;
 
-		// find the next section to scroll to
+		// while inside the Projects section (which is taller than one viewport),
+		// scroll 90% of the viewport height instead of jumping past it.
+		if (
+			projectsRef.current &&
+			contactRef.current &&
+			currentScroll + scrollMarginOffset >= projectsRef.current.offsetTop &&
+			currentScroll + scrollMarginOffset < contactRef.current.offsetTop
+		) {
+			window.scrollBy({ top: window.innerHeight * 0.9, behavior: "smooth" });
+			return;
+		}
+
+		// for all other sections, snap to the next named section
+		let nextSectionRef = null;
 		for (let i = 0; i < sectionRefs.length; i++) {
 			const ref = sectionRefs[i];
 			if (ref.current && ref.current.offsetTop > currentScroll + scrollMarginOffset) {
