@@ -8,9 +8,20 @@ import regressionModelsImg from "../assets/images/regression_models.png";
 import salesAnalysisImg from "../assets/images/sales_analysis.png";
 import smartChefImg from "../assets/images/smartChef.png";
 import tinytutorImg from "../assets/images/tinytutor.png";
+import safeLensImg from "../assets/images/safelens_montgomery.png";
 
 function Projects({ projectsRef }) {
 	const projects = [
+		{
+            title: "SafeLens Montgomery",
+            imageSrc: safeLensImg,
+            description:
+                "SafeLens Montgomery is a bidirectional community safety intelligence platform developed for the City of Montgomery, Alabama, during the World Wide Vibes Hackathon 2026. Competing in the Public Safety, Emergency Response & City Analytics track, the project bridges the communication gap between residents and city officials, keeping communities informed while empowering them to contribute the ground-level insights that drive better decision-making. The platform ingests real-time data from multiple public sources, including local RSS feeds, Google News, 311 service reports, and resident submissions, processing it through a dual-model AI pipeline. Gemini 2.0 Flash handles high-volume classification and clustering, while Claude Sonnet 4 transforms the results into responsible, human-readable neighborhood safety narratives. An official dashboard supports resource prioritization, incident triage, and proactive public communication, while the resident view provides real-time alerts and a human-in-the-loop system that lets residents verify whether incidents are still active, keeping officials and the community informed in real time. Built in four days through AI-assisted vibe coding, it reflects my ability to lead a team, architect complex systems, and deliver a complete, production-ready product under the most demanding conditions.",
+            link: "https://safelens-montgomery.vercel.app",
+            github: "https://github.com/angelatyk/safelens-montgomery",
+            presentation: "https://youtu.be/u7ioSDA4eD8?si=6lKr_i7uS8bWrMPB",
+            tags: ["AI/Machine Learning", "Full-Stack", "Data Science"],
+        },
 		{
 			title: "TinyTutor",
 			imageSrc: tinytutorImg,
@@ -69,7 +80,7 @@ function Projects({ projectsRef }) {
 			description:
 				"Reconnect is a full-stack application built in two weeks during a hackathon to foster stronger workplace connections in remote environments. The app lets employees share events, find common interests, and participate in company-wide gamification through a points-based competition system. It features a responsive interface built with React and Sass, secure authentication and data storage via Supabase and PostgreSQL, and seamless deployment on Vercel. This project highlights adaptability, teamwork in an Agile environment, and rapid learning of new tools under tight deadlines.",
 			link: "https://reconnector.vercel.app/",
-			github: "https://github.com/angelatyk/angela-kwok-grow",
+			github: "https://github.com/angelatyk/reconnector-frontend",
 			tags: ["Full-Stack"],
 		},
 		{
